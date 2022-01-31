@@ -1,9 +1,8 @@
 import React from 'react';
 import DropDown from '../dropDown/DropDown';
-import {Button, Badge} from '@material-ui/core';
-import { IoIosArrowDown, IoIosCart, IoIosSearch } from "react-icons/io";
+import { Badge} from '@material-ui/core';
+import { IoIosArrowDown } from "react-icons/io";
 import {makeStyles} from '@material-ui/core/styles';
-import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import BusinessCenterIcon from '@mui/icons-material/BusinessCenter';
 import LiveHelpIcon from '@mui/icons-material/LiveHelp';

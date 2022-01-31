@@ -1,10 +1,11 @@
 import {Box, makeStyles, Typography} from '@material-ui/core';
 import {navData} from '../../constants/data';
-
+import Categories from './Categories';
+import "./categories.scss"
 const useStyle = makeStyles(theme => ({
     component: {
         marginTop: '55px',
-        padding:'0px 69px 0px 69px',
+        padding: '0px 69px 0px 69px',
         fontSize: 14,
         lineHeight: 1.4,
         fontFamily: "Roboto,Arial,sans-serif",
@@ -23,45 +24,69 @@ const useStyle = makeStyles(theme => ({
     },
     container: {
         padding: '12px 8px',
-        textAlign: 'center'
+        textAlign: 'center',
+        cursor: "pointer",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center"
     },
     image: {
         width: 64
     },
+
     text: {
+        display: "flex",
         fontSize: 14,
         fontWeight: 600,
-        fontFamily: 'inherit'
+        fontFamily: 'inherit',
+        color: "black",
+        '&:hover': {
+            color: "#2874f0"
+        }
     }
 }));
+
 
 const NavBar = () => {
     const classes = useStyle();
     return (
-        <Box className={
-            classes.component
-        }>
-            {
-            navData.map(temp => (
-                <Box className={
-                    classes.container
-                }>
-                    <img src={
-                            temp.url
-                        }
-                        className={
-                            classes.image
-                        }
-                        alt=""/>
-                    <Typography className={
-                        classes.text
+        <>
+            <Box className={
+                classes.component
+            }>
+                {
+                navData.map(temp => (
+                    <Box className={
+                        classes.container
                     }>
-                        {
-                        temp.text
-                    }</Typography>
-                </Box>
-            ))
-        } </Box>
+                        <img src={
+                                temp.url
+                            }
+                            className={
+                                classes.image
+                            }
+                            alt=""/>
+                        <div className="categories-dropDown">
+                            <Typography className={
+                                classes.text
+                            }>
+                                {
+                                temp.text
+                            }
+                                {
+                                temp.icon
+                            }</Typography>
+                            <div className="categories-link">
+                                <div className="categories"></div>
+                                <Categories/>
+                            </div>
+                        </div>
+                    </Box>
+                    
+                ))
+            } </Box>
+
+        </>
     )
 }
 

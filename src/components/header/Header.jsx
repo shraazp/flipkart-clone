@@ -1,23 +1,19 @@
-import React from 'react';
+import React,{useState} from 'react';
 import flipkart from "../../images/flipkart.png"
 import plus from "../../images/plus.png";
 import Search from './Search';
 import CustomButtons from './CustomButtons';
 import LoginButton from './LoginButton';
+import { Menu } from '@material-ui/icons';
+import { AppBar, Toolbar, makeStyles, Box, Typography, withStyles, IconButton, Drawer, List, ListItem} from '@material-ui/core';
+import DrawerStyle from './Drawer';
 
-import {
-    AppBar,
-    Toolbar,
-    makeStyles,
-    Box,
-    Typography
-} from '@material-ui/core';
 
 const useStyle = makeStyles(theme => ({
     header: {
         background: '#2874f0',
         height: 55,
-        boxShadow:"none"
+        boxShadow: "none"
     },
     toolbar: {
         minHeight: 55
@@ -38,15 +34,15 @@ const useStyle = makeStyles(theme => ({
         fontSize: 11,
         fontStyle: 'italic',
         '&:hover': {
-          textDecoration:"underline"
-         },
+            textDecoration: "underline"
+        }
     },
     subURL: {
         width: 10,
         height: 10
     },
     list: {
-        width: 250
+        height:667
     },
     menuButton: {
         display: 'none',
@@ -63,6 +59,25 @@ const useStyle = makeStyles(theme => ({
 }));
 export default function Header() {
     const classes = useStyle();
+    const [open, setOpen] = useState(false);
+
+    const handleClose = () => {
+        setOpen(false);
+    }
+
+    const handleOpen = () => {
+        setOpen(true);
+    }
+
+    const list = () => (
+        <Box sx={{width:"75%"}} className={classes.list} onClick={handleClose}>
+            <List>
+                <listItem button>
+                    <DrawerStyle/>
+                </listItem>
+            </List>
+        </Box>
+    );
 
     return (
         <AppBar position="fixed"
@@ -72,7 +87,17 @@ export default function Header() {
             <Toolbar className={
                 classes.toolbar
             }>
+               <IconButton
+                    color="inherit"
+                    className={classes.menuButton}
+                    onClick={handleOpen}
+                >
+                    <Menu />
+                </IconButton>
 
+                <Drawer  sx= { {width:"75%" }}open={open} onClose={handleClose}>
+                    {list()}
+                </Drawer>
                 <a href='/'
                     className={
                         classes.component
@@ -91,8 +116,13 @@ export default function Header() {
                         }>Explore
                             <Box component="span"
                                 style={
-                                    {color: '#FFE500',fontSize: "11px",fontWeight:500,margin:"0 2px 0 2px",
-                                    fontStyle: "italic"}
+                                    {
+                                        color: '#FFE500',
+                                        fontSize: "11px",
+                                        fontWeight: 500,
+                                        margin: "0 2px 0 2px",
+                                        fontStyle: "italic"
+                                    }
                             }>Plus</Box>
                         </Typography>
                         <img alt=""
@@ -102,6 +132,7 @@ export default function Header() {
                             }/>
                     </Box>
                 </a>
+
                 <Search/>
                 <LoginButton/>
                 <CustomButtons/>

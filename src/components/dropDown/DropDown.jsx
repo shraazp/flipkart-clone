@@ -8,7 +8,7 @@ export default function DropDown(props) {
         <div className="dropdown">
             <div className="upArrow"></div>
             {
-            props.firstMenu
+           props.firstMenu
         }
             <ul className="headerDropdownMenu">
                 {
