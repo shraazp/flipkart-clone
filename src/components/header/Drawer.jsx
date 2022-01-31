@@ -1,15 +1,9 @@
 import React from 'react';
-import MenuItem from 'material-ui/MenuItem';
 import logo from '../../images/logo.png'
 import {
     AppBar,
-    Toolbar,
     makeStyles,
     Box,
-    Typography,
-    withStyles,
-    IconButton,
-    Drawer,
     List,
     ListItem,
     ListItemText,

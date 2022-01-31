@@ -29,7 +29,8 @@ const useStyle = makeStyles(theme => ({
         alignItems: "center",
         margin: "0 20px",
         cursor: "pointer",
-        fontFamily: "Roboto,Arial,sans-serif"
+        fontFamily: "Roboto,Arial,sans-serif",
+        textDecoration:"none"
     }
 }))
 
@@ -37,7 +38,7 @@ const RenderLoggedInMenu = () => {
     const classes = useStyle();
     return (
       <DropDown
-        menu={<a className={classes.fullName}>My Account <IoIosArrowDown/> </a>}
+        menu={<a href="/login" className={classes.fullName}>My Account <IoIosArrowDown/> </a>}
         menus={[
           { label: "My Profile", href: "", icon: null },
           { label: "SuperCoin Zone", href: "", icon: null },
@@ -101,7 +102,7 @@ const RenderLoggedInMenu = () => {
 
 
 export default function LoginButton() {
-    const [loggedIn,setLoggedIn]=React.useState(true)
+    const loggedIn=false;
    return (
        loggedIn?RenderLoggedInMenu():RenderNonLoggedInMenu()
    )

@@ -5,7 +5,7 @@ import Search from './Search';
 import CustomButtons from './CustomButtons';
 import LoginButton from './LoginButton';
 import { Menu } from '@material-ui/icons';
-import { AppBar, Toolbar, makeStyles, Box, Typography, withStyles, IconButton, Drawer, List, ListItem} from '@material-ui/core';
+import { AppBar, Toolbar, makeStyles, Box, Typography, IconButton, Drawer, List} from '@material-ui/core';
 import DrawerStyle from './Drawer';
 
 

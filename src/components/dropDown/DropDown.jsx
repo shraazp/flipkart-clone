@@ -1,10 +1,10 @@
 import React from 'react';
-import './dropDown.scss'
+import './dropDown.scss';
+
 export default function DropDown(props) {
-    return <div className="headerDropdownContainer">
-        {
-        props.menu
-    }
+  return (
+    <div className="headerDropdownContainer">
+      { props.menu }
         <div className="dropdown">
             <div className="upArrow"></div>
             {
@@ -31,5 +31,6 @@ export default function DropDown(props) {
                 ))
             } </ul>
         </div>
-    </div>;
+    </div>
+    );
 }
