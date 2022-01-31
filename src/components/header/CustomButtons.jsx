@@ -1,5 +1,5 @@
 import React from 'react';
-import { Badge} from '@material-ui/core';
+import { Badge } from '@material-ui/core';
 import { IoIosArrowDown } from 'react-icons/io';
 import { makeStyles } from '@material-ui/core/styles';
 import NotificationsIcon from '@mui/icons-material/Notifications';
@@ -79,59 +79,71 @@ export default function CustomButtons() {
   const classes = useStyles();
   return (
     <>
-      <div className={classes.MoreContainer}>
-        <DropDown 
-        menu={
-                    <span
-                className="more"><span>More</span><IoIosArrowDown/></span>
-                }
-                menus={
+      <div className={
+                classes.MoreContainer
+            }
+      >
+        <DropDown
+          menu={(
+            <span
+              className="more"
+            >
+              <span>More</span>
+              <IoIosArrowDown />
+            </span>
+                )}
+          menus={
                     [
-                        {
-                            label: "Notification Preference",
-                            href: "",
-                            icon: <NotificationsIcon color="primary"/>
-                        },
-                        {
-                            label: "Sell on flipkart",
-                            href: "",
-                            icon: <BusinessCenterIcon color="primary"/>
-                        },
-                        {
-                            label: "24x7 Customer Care",
-                            href: "",
-                            icon: <LiveHelpIcon color="primary"/>
-                        },
-                        {
-                            label: "Advertise",
-                            href: "",
-                            icon: <TrendingUpIcon color="primary"/>
-                        }, {
-                            label: "Download App",
-                            href: "",
-                            icon: <DownloadIcon color="primary"/>
-                        },
+                      {
+                        label: 'Notification Preference',
+                        href: '',
+                        icon: <NotificationsIcon color="primary" />,
+                      },
+                      {
+                        label: 'Sell on flipkart',
+                        href: '',
+                        icon: <BusinessCenterIcon color="primary" />,
+                      },
+                      {
+                        label: '24x7 Customer Care',
+                        href: '',
+                        icon: <LiveHelpIcon color="primary" />,
+                      },
+                      {
+                        label: 'Advertise',
+                        href: '',
+                        icon: <TrendingUpIcon color="primary" />,
+                      }, {
+                        label: 'Download App',
+                        href: '',
+                        icon: <DownloadIcon color="primary" />,
+                      },
                     ]
-                }/>
-        </div>
-        <div className={
-            classes.cartContainer
-        }>
-
-            <a href='/cart'
-                className={
-                    classes.cart
-            }>
-                <Badge badgeContent={2}
-                    color="secondary"
-                    style={
-                        {margin: "0 8px"}
-                }>
-                    <ShoppingCartIcon fontSize='small'/>
-                </Badge>
-                <span>Cart</span>
-            </a>
-        </div>
+                    }
+        />
+      </div>
+      <div className={
+                classes.cartContainer
+            }
+      >
+        <a
+          href="/cart"
+          className={
+                        classes.cart
+                }
+        >
+          <Badge
+            badgeContent={2}
+            color="secondary"
+            style={
+                            { margin: '0 8px' }
+                    }
+          >
+            <ShoppingCartIcon fontSize="small" />
+          </Badge>
+          <span>Cart</span>
+        </a>
+      </div>
     </>
   );
 }

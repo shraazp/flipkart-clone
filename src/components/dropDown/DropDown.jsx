@@ -1,36 +1,40 @@
 import React from 'react';
 import './dropDown.scss';
 
-export default function DropDown(props) {
+export default function DropDown({props}) {
   return (
     <div className="headerDropdownContainer">
       { props.menu }
-        <div className="dropdown">
-            <div className="upArrow"></div>
-            {
+      <div className="dropdown">
+        <div className="upArrow" />
+        {
            props.firstMenu
         }
-            <ul className="headerDropdownMenu">
-                {
+        <ul className="headerDropdownMenu">
+          {
                 props.menus && props.menus.map((item, index) => (
-                    <li key={index}>
-
-                        <a href={
+                  <li key={index}>
+                    <a
+                      href={
                             `${
-                                item.href
+                              item.href
                             }`
-                        } className="icons">
-                            {
+                        }
+                      className="icons"
+                    >
+                      {
                             item.icon
                         }
-                            {
+                      {
                             item.label
-                        } </a>
-
-                    </li>
+                        }
+                    </a>
+                  </li>
                 ))
-            } </ul>
-        </div>
+            }
+          {' '}
+        </ul>
+      </div>
     </div>
-    );
+  );
 }
