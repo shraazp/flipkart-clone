@@ -9,6 +9,7 @@ import Search from './Search';
 import CustomButtons from './CustomButtons';
 import LoginButton from './LoginButton';
 import DrawerStyle from './Drawer';
+import Login from '../dialog/Login';
 
 const useStyle = makeStyles((theme) => ({
   header: {
@@ -61,7 +62,7 @@ const useStyle = makeStyles((theme) => ({
 export default function Header() {
   const classes = useStyle();
   const [open, setOpen] = useState(false);
-
+  const [openLogin, setOpenLogin] = useState(true);
   const handleClose = () => {
     setOpen(false);
   };
@@ -154,6 +155,7 @@ export default function Header() {
         <Search />
         <LoginButton />
         <CustomButtons />
+        <Login open={openLogin} setOpen={setOpenLogin} />
       </Toolbar>
     </AppBar>
   );

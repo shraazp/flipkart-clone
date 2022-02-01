@@ -1,19 +1,20 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './dropDown.scss';
 
-export default function DropDown({props}) {
+export default function DropDown({ menu, menus, firstMenu }) {
   return (
     <div className="headerDropdownContainer">
-      { props.menu }
+      { menu }
       <div className="dropdown">
         <div className="upArrow" />
         {
-           props.firstMenu
+           firstMenu
         }
         <ul className="headerDropdownMenu">
           {
-                props.menus && props.menus.map((item, index) => (
-                  <li key={index}>
+                menus && menus.map((item) => (
+                  <li>
                     <a
                       href={
                             `${
@@ -38,3 +39,13 @@ export default function DropDown({props}) {
     </div>
   );
 }
+DropDown.propTypes = {
+  menu: PropTypes.node,
+  menus: PropTypes.node,
+  firstMenu: PropTypes.node,
+};
+DropDown.defaultProps = {
+  menu: <span>More</span>,
+  menus: { },
+  firstMenu: <div />,
+};
