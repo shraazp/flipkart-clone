@@ -1,15 +1,18 @@
+/**
+ * login component
+ * @author:Shravya P
+ */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { Button, makeStyles } from '@material-ui/core';
 import { IoIosArrowDown } from 'react-icons/io';
 import DropDown from '../dropDown/DropDown';
 
-const useStyle = makeStyles((theme) => ({
-  container: {
+const useStyles = makeStyles((theme) => ({
+  LoginButtons: {
     margin: '0 20px',
-    minWidth: 112,
-    maxWidth: 152,
-  },
-  button: {
     color: '#2874f0',
     background: '#FFFFFF',
     textTransform: 'none',
@@ -34,9 +37,8 @@ const useStyle = makeStyles((theme) => ({
     textDecoration: 'none',
   },
 }));
-
 function RenderLoggedInMenu() {
-  const classes = useStyle();
+  const classes = useStyles();
   return (
     <DropDown
       menu={
@@ -107,16 +109,18 @@ function RenderLoggedInMenu() {
   );
 }
 
-function RenderNonLoggedInMenu() {
-  const classes = useStyle();
+function RenderNonLoggedInMenu(setOpenLogin) {
+  const classes = useStyles();
+  const handleOpenLogin = () => {
+    setOpenLogin(true);
+  };
   return (
     <DropDown
       menu={(
         <Button
           variant="contained"
-          className={
-classes.button
-}
+          className={classes.LoginButtons}
+          onClick={() => { handleOpenLogin(); }}
         >
           Login
         </Button>
@@ -160,20 +164,20 @@ classes.button
           <span>
             New Customer?
           </span>
-          <a
-            href
+          <Button
+            variant="text"
             style={
 { color: '#2874f0' }
 }
           >
             Sign Up
-          </a>
+          </Button>
         </div>
               )}
     />
   );
 }
-export default function LoginButton() {
-  const loggedIn = false;
-  return (loggedIn ? RenderLoggedInMenu() : RenderNonLoggedInMenu());
+export default function LoginButton({ setOpenLogin, setOpenSignUp }) {
+  const loggedIn = useSelector((state) => state.allOffers.isLogin);
+  return (loggedIn ? RenderLoggedInMenu() : RenderNonLoggedInMenu(setOpenLogin, setOpenSignUp));
 }

@@ -1,17 +1,21 @@
+/**
+ * different categories in the navigation bar
+ * @author:Shravya P
+ */
 import React from 'react';
 import './categories.scss';
-import { fashion } from '../../constants/data';
 
-function Categories() {
-  const [category, setCategory] = React.useState(fashion["Mens's Top Wear"]);
+// eslint-disable-next-line react/prop-types
+function Categories({ cat }) {
+  const [category, setCategory] = React.useState(Object.values(cat)[0]);
   const handleHover = (sub) => {
     setCategory(sub);
   };
   return (
     <div className="main-container">
       <ul className="category-container">
-        {Object.keys(fashion).map((key) => (
-          <li className="cat" onMouseOver={() => { handleHover(fashion[key]); }} onFocus={() => { handleHover(fashion[key]); }}>
+        {Object.keys(cat).map((key) => (
+          <li className="cat" onMouseOver={() => { handleHover(cat[key]); }} onFocus={() => { handleHover(cat[key]); }}>
             {key}
           </li>
         ))}

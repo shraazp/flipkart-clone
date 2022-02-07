@@ -1,7 +1,10 @@
+/**
+ * all the header components are in drawer component when mobile devices are used.
+ * @author:Shravya P
+ */
 import React from 'react';
 import {
   AppBar,
-  makeStyles,
   Box,
   List,
   ListItem,
@@ -11,47 +14,10 @@ import {
 import PersonIcon from '@mui/icons-material/Person';
 import logo from '../../images/logo.png';
 import { drawerData } from '../../constants/data';
+import useStyles from './Styles';
 
-const useStyle = makeStyles(() => ({
-  header: {
-    background: '#2874f0',
-    height: 55,
-    boxShadow: 'none',
-    width: '255px',
-    marginTop: -7,
-    display: 'flex',
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  logo: {
-    height: 20,
-    width: 20,
-    verticalAlign: 'middle',
-    marginRight: 15,
-
-  },
-  login: {
-    width: '75%',
-    marginLeft: 20,
-    fontSize: 16,
-    color: '#fff',
-    whiteSpace: 'nowrap',
-    overflow: 'hidden',
-    textOverflow: 'ellipsis',
-    marginTop: 1,
-    fontFamily: 'Roboto,Helvetica,Arial,sans-serif',
-  },
-  list: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    color: '#414141',
-    fontSize: '14px',
-    fontWeight: 500,
-  },
-}));
 export default function DrawerStyle() {
-  const classes = useStyle();
+  const classes = useStyles();
   return (
     <div>
       <AppBar

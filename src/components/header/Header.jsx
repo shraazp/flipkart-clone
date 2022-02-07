@@ -1,7 +1,11 @@
+/**
+ * Header component contains logo, search button , login and more components also cart button
+ * @author:Shravya P
+ */
 import React, { useState } from 'react';
 import { Menu } from '@material-ui/icons';
 import {
-  AppBar, Toolbar, makeStyles, Box, Typography, IconButton, Drawer, List,
+  AppBar, Toolbar, Box, Typography, IconButton, Drawer, List,
 } from '@material-ui/core';
 import flipkart from '../../images/flipkart.png';
 import plus from '../../images/plus.png';
@@ -10,59 +14,14 @@ import CustomButtons from './CustomButtons';
 import LoginButton from './LoginButton';
 import DrawerStyle from './Drawer';
 import Login from '../dialog/Login';
+import SignUp from '../dialog/SignUp';
+import useStyles from './Styles';
 
-const useStyle = makeStyles((theme) => ({
-  header: {
-    background: '#2874f0',
-    height: 55,
-    boxShadow: 'none',
-  },
-  toolbar: {
-    minHeight: 55,
-  },
-  component: {
-    marginLeft: '12%',
-    lineHeight: 0,
-    color: '#FFFFFF',
-    textDecoration: 'none',
-  },
-  logo: {
-    width: 75,
-  },
-  container: {
-    display: 'flex',
-  },
-  subHeading: {
-    fontSize: 11,
-    fontStyle: 'italic',
-    '&:hover': {
-      textDecoration: 'underline',
-    },
-  },
-  subURL: {
-    width: 10,
-    height: 10,
-  },
-  list: {
-    height: 667,
-  },
-  menuButton: {
-    display: 'none',
-    [theme.breakpoints.down('sm')]: {
-      display: 'block',
-    },
-  },
-  customButtons: {
-    margin: '0 5% 0 auto',
-    [theme.breakpoints.down('sm')]: {
-      display: 'none',
-    },
-  },
-}));
 export default function Header() {
-  const classes = useStyle();
+  const classes = useStyles();
   const [open, setOpen] = useState(false);
-  const [openLogin, setOpenLogin] = useState(true);
+  const [openLogin, setOpenLogin] = useState(false);
+  const [openSignUpup, setOpenSignUp] = useState(false);
   const handleClose = () => {
     setOpen(false);
   };
@@ -72,7 +31,7 @@ export default function Header() {
   };
 
   const list = () => (
-    <Box sx={{ width: '75%' }} className={classes.list} onClick={handleClose}>
+    <Box sx={{ width: '75%' }} className={classes.listMain} onClick={handleClose}>
       <List>
         <listItem button>
           <DrawerStyle />
@@ -85,7 +44,7 @@ export default function Header() {
     <AppBar
       position="fixed"
       className={
-                classes.header
+                classes.headerMain
         }
     >
       <Toolbar className={
@@ -113,7 +72,7 @@ export default function Header() {
             alt=""
             src={flipkart}
             className={
-                            classes.logo
+                            classes.logoMain
                         }
           />
           <Box
@@ -152,10 +111,19 @@ export default function Header() {
             />
           </Box>
         </a>
-        <Search />
-        <LoginButton />
-        <CustomButtons />
-        <Login open={openLogin} setOpen={setOpenLogin} />
+        <Search className={classes.searchWrapper} />
+        <LoginButton setOpenLogin={setOpenLogin} setOpenSignUp={setOpenSignUp} />
+        <CustomButtons className={classes.customButtons} />
+        <Login
+          openLogin={openLogin}
+          setOpenLogin={setOpenLogin}
+          setOpenSignUp={setOpenSignUp}
+        />
+        <SignUp
+          openSignUp={openSignUpup}
+          setOpenSignUp={setOpenSignUp}
+          setOpenLogin={setOpenLogin}
+        />
       </Toolbar>
     </AppBar>
   );

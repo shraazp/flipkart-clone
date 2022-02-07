@@ -1,3 +1,7 @@
+/**
+ * About component of the footer contains contact details and many more
+ * @author:Shravya P
+ */
 import React from 'react';
 import './footer.scss';
 

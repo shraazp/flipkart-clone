@@ -5,6 +5,7 @@
     margin-top: 25px;
     width: 100%;
     text-align: left;
+    display: block;
 }
 .about-container{
     margin-left: 65px;
@@ -70,4 +71,10 @@
 }
 a{
     text-decoration: none;
+}
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .footer-container{
+        display:none
+    }
 }
