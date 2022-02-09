@@ -5,8 +5,9 @@
 import React, { useState } from 'react';
 import { Menu } from '@material-ui/icons';
 import {
-  AppBar, Toolbar, Box, Typography, IconButton, Drawer, List,
+  AppBar, Toolbar, Box, Typography, IconButton, Drawer, List, Button,
 } from '@material-ui/core';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import flipkart from '../../images/flipkart.png';
 import plus from '../../images/plus.png';
 import Search from './Search';
@@ -34,7 +35,7 @@ export default function Header() {
     <Box sx={{ width: '75%' }} className={classes.listMain} onClick={handleClose}>
       <List>
         <listItem button>
-          <DrawerStyle />
+          <DrawerStyle setOpenLogin={setOpenLogin} />
         </listItem>
       </List>
     </Box>
@@ -112,7 +113,10 @@ export default function Header() {
           </Box>
         </a>
         <Search className={classes.searchWrapper} />
-        <LoginButton setOpenLogin={setOpenLogin} setOpenSignUp={setOpenSignUp} />
+        <LoginButton
+          setOpenLogin={setOpenLogin}
+          setOpenSignUp={setOpenSignUp}
+        />
         <CustomButtons className={classes.customButtons} />
         <Login
           openLogin={openLogin}
@@ -124,6 +128,10 @@ export default function Header() {
           setOpenSignUp={setOpenSignUp}
           setOpenLogin={setOpenLogin}
         />
+        <div className={classes.cartLogin}>
+          <ShoppingCartIcon className={classes.cartIcon} />
+          <Button variant="text" className={classes.LoginButton} onClick={() => { setOpenLogin(true); }}>LOGIN</Button>
+        </div>
       </Toolbar>
     </AppBar>
   );

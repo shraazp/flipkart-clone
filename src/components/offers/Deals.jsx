@@ -4,13 +4,16 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useNavigate } from 'react-router-dom';
 import {
   Box, Typography, Button, Divider,
 } from '@material-ui/core';
 import Carousel from 'react-multi-carousel';
+import { useDispatch } from 'react-redux';
 import 'react-multi-carousel/lib/styles.css';
 import Countdown from 'react-countdown';
 import useStyle from './styles';
+import { setCategory } from '../../actions/categoryActions';
 
 const responsive = {
   superLargeDesktop: {
@@ -30,8 +33,18 @@ const responsive = {
     items: 1,
   },
 };
-export default function Deals({ data, timer, title }) {
+export default function Deals({
+  data, timer, title,
+}) {
+  const navigate = useNavigate();
   const classes = useStyle();
+  const dispatch = useDispatch();
+  const handleCategory = (category, subCat) => {
+    dispatch(setCategory({
+      category,
+      subCategory: subCat,
+    }));
+  };
   const timerURL = 'https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/timer_a73398.svg';
 
   const renderer = ({ hours, minutes, seconds }) => (
@@ -80,14 +93,12 @@ export default function Deals({ data, timer, title }) {
       >
         {
             data.map((temp) => (
-              <a href={`product/${temp.id}`} style={{ textDecoration: 'none' }}>
-                <Box textAlign="center" className={classes.wrapper}>
-                  <img src={temp.image} className={classes.image} alt="" />
-                  <Typography className={classes.text} style={{ fontWeight: 600, color: '#212121' }}>{temp.title}</Typography>
-                  <Typography className={classes.text} style={{ color: 'green' }}>{temp.discount}</Typography>
-                  <Typography className={classes.text} style={{ color: '#212121', opacity: '.6' }}>{temp.tagline}</Typography>
-                </Box>
-              </a>
+              <Box textAlign="center" className={classes.wrapper} onClick={() => { handleCategory(temp.attributes.category, temp.attributes.subcategory); navigate(`categories/${temp.attributes.CategoryId}`); }}>
+                <img src={temp.attributes.imageUrl} className={classes.image} alt="" />
+                <Typography className={classes.text} style={{ fontWeight: 600, color: '#212121' }}>{temp.attributes.name}</Typography>
+                <Typography className={classes.text} style={{ color: 'green' }}>{temp.attributes.discount}</Typography>
+                <Typography className={classes.text} style={{ color: '#212121', opacity: '.6' }}>{temp.attributes.tagline}</Typography>
+              </Box>
             ))
         }
       </Carousel>

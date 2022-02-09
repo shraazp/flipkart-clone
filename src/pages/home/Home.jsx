@@ -2,9 +2,9 @@
  * Home page of the application contains header,navigatio bar top offers and footer
  * @author:Shravya P
  */
-import React from 'react';
+import React, { useEffect } from 'react';
 import './home.css';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import Header from '../../components/header/Header';
 import ImageSlider from '../../components/ImageSlider/ImageSlider';
 import Footer from '../../components/footer/Footer';
@@ -12,9 +12,32 @@ import TopOffers from '../../components/offers/TopOffers';
 import About from '../../components/brandDirectory/About';
 import NavigationBar from '../../components/navbar/NavigationBar';
 import Deals from '../../components/offers/Deals';
+import { getAllDeals, getAllDiscounts, getAllSelection } from '../../services/OffersService';
+import { setDeals, setDiscount, setSelection } from '../../actions/categoryActions';
 
 export default function Home() {
-  const offers = useSelector((state) => state.allOffers.offers);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    getAllDeals().then((res) => {
+      dispatch(setDeals(res));
+    }).catch(() => {
+    });
+  }, []);
+  useEffect(() => {
+    getAllDiscounts().then((res) => {
+      dispatch(setDiscount(res));
+    }).catch(() => {
+    });
+  }, []);
+  useEffect(() => {
+    getAllSelection().then((res) => {
+      dispatch(setSelection(res));
+    }).catch(() => {
+    });
+  }, []);
+  const deals = useSelector((state) => state.allCategories.deals);
+  const discounts = useSelector((state) => state.allCategories.discounts);
+  const selections = useSelector((state) => state.allCategories.selections);
   return (
     <div id="container">
       <div className="header-container">
@@ -22,14 +45,25 @@ export default function Home() {
       </div>
       <NavigationBar />
       <ImageSlider style={{ padding: '0 0 10px' }} />
-      {offers['Deals of the Day'] ? <TopOffers products={offers['Deals of the Day']} /> : null}
-      {offers['Todays fashion deals'] ? (
-        <Deals
-          data={offers['Todays fashion deals']}
-          title="Today's fashion deals"
-          timer={false}
-        />
-      ) : null}
+      { deals.length !== 0
+        ? (
+          <div>
+            {' '}
+            <TopOffers products={deals} />
+            <Deals
+              data={discounts}
+              title="Discounts for You"
+              timer={false}
+            />
+            <Deals
+              data={selections}
+              title="Top Selection"
+              timer={false}
+            />
+            {' '}
+          </div>
+        )
+        : null}
       <div style={{ backgroundColor: '#fff' }}>
         <About />
         <Footer />

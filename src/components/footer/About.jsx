@@ -129,7 +129,7 @@ export default function About() {
           © 2007-2022
           <span>Flipkart.com</span>
         </span>
-        <img src="https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/payment-method_69e7ec.svg" alt="" />
+        <img className="pay-image" src="https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/payment-method_69e7ec.svg" alt="" />
       </div>
     </div>
   );

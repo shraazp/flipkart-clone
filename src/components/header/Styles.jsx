@@ -57,6 +57,9 @@ const useStyles = makeStyles((theme) => ({
     alignContent: 'center',
     justifyContent: 'flex-end',
     maxWidth: 150,
+    [theme.breakpoints.down('sm')]: {
+      display: 'none',
+    },
   },
   cart: {
     display: 'flex',
@@ -69,6 +72,9 @@ const useStyles = makeStyles((theme) => ({
     position: 'relative',
     textDecoration: 'none',
     fontFamily: 'Roboto,Arial,sans-serif',
+  },
+  badge: {
+    margin: '0 8px',
   },
   header: {
     background: '#2874f0',
@@ -181,6 +187,22 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down('sm')]: {
       display: 'none',
     },
+  },
+  cartLogin: {
+    position: 'absolute',
+    right: '0',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginLeft: '10px',
+    // eslint-disable-next-line no-dupe-keys
+    display: 'none',
+    [theme.breakpoints.down('sm')]: {
+      display: 'flex',
+    },
+  },
+  LoginButton: {
+    color: '#fff',
+    marginTop: '5px',
   },
 }));
 export default useStyles;

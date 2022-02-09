@@ -48,7 +48,6 @@
     list-style: none;
   }
   .headerDropdownMenu li a {
-    display: block;
     padding: 15px 20px;
     box-sizing: border-box;
     font-size: 14px;
@@ -72,4 +71,7 @@
     align-items: center;
     width: 100%;
     padding: 16px 12px;
+  }
+  .icon-label{
+    margin-left:12px;
   }

@@ -17,6 +17,7 @@ export default function TopOffers({ products }) {
           data={products}
           title="Deals of the Day"
           timer
+          cat="DealsOfTheDay"
         />
       </Box>
       <Box className={classes.rightComponent}>

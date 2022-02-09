@@ -18,8 +18,8 @@ const useStyle = makeStyles((theme) => ({
   rightComponent: {
     background: '#FFFFFF',
     maxWidth: '248px',
-    marginLeft: 10,
-    padding: 10,
+    marginLeft: 2,
+    paddingTop: 10,
     [theme.breakpoints.down('md')]: {
       display: 'none',
     },

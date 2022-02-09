@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import './dropDown.scss';
 import { removeUserSession } from '../../utils/Common';
-import { loginStatus } from '../../actions/offerActions';
+import { loginStatus } from '../../actions/categoryActions';
 
 export default function DropDown({ menu, menus, firstMenu }) {
   const logout = (item) => {
@@ -41,9 +41,11 @@ export default function DropDown({ menu, menus, firstMenu }) {
                       {
                             item.icon
                         }
-                      {
+                      <div className="icon-label">
+                        {
                             item.label
                         }
+                      </div>
                     </a>
                   </li>
                 ))

@@ -78,3 +78,19 @@ a{
         display:none
     }
 }
+@media only screen and (min-width: 768px) {
+    .footer-container{
+        min-width: 768px;
+    }
+    .about-wrapper{
+min-width: 768px;
+    }
+    .pay-image{
+        display:none;
+    }
+}
+@media only screen and (min-width: 992px) {
+    .pay-image{
+        display:block;
+    }
+}

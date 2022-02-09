@@ -4,11 +4,42 @@
  */
 import React from 'react';
 import SearchIcon from '@material-ui/icons/Search';
-import { InputBase } from '@material-ui/core';
-import useStyles from './Styles';
+import {
+  makeStyles, InputBase,
+} from '@material-ui/core';
 
-export default function Search() {
-  const classes = useStyles();
+const useStyle = makeStyles(() => ({
+  search: {
+    borderRadius: 2,
+    marginLeft: 10,
+    width: '38%',
+    backgroundColor: '#fff',
+    display: 'flex',
+  },
+  searchIcon: {
+    marginLeft: 'auto',
+    padding: 5,
+    display: 'flex',
+    color: 'blue',
+  },
+  inputRoot: {
+    fontSize: 'unset',
+    width: '100%',
+  },
+  inputInput: {
+    paddingLeft: 20,
+    width: '100%',
+  },
+  list: {
+    position: 'absolute',
+    color: '#000',
+    background: '#FFFFFF',
+    marginTop: 36,
+  },
+}));
+
+function Search() {
+  const classes = useStyle();
   return (
     <div className={classes.search}>
       <InputBase
@@ -25,3 +56,5 @@ export default function Search() {
     </div>
   );
 }
+
+export default Search;

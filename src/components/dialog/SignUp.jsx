@@ -11,7 +11,7 @@ import TextField from '@mui/material/TextField';
 import useForm from '../../utils/useForm';
 import validate from '../../utils/LoginFormValidationRules';
 import { SignUpAPI } from '../../services/LoginService';
-import { loginStatus } from '../../actions/offerActions';
+import { loginStatus } from '../../actions/categoryActions';
 
 export default function SignUp({ openSignUp, setOpenSignUp, setOpenLogin }) {
   const dispatch = useDispatch();
@@ -76,6 +76,29 @@ export default function SignUp({ openSignUp, setOpenSignUp, setOpenLogin }) {
                         required
                       />
                       <span className="under" />
+                    </div>
+                    <div className="agree-button">
+                      By continuing, you agree to Flipkart&apos;s&nbsp;
+                      <a
+                        className="terms-button"
+                        target="_blank"
+                        href="/pages/terms"
+                      >
+                        Terms of Use&nbsp;
+
+                      </a
+                >
+                      and&nbsp;
+                      <a
+                        className="privacy-policy"
+                        target="_blank"
+                        href="/pages/privacypolicy"
+                      >
+                        Privacy Policy
+
+                      </a
+                >
+                      .
                     </div>
                     <div className="Login-button-container">
                       <button className="Login-button" type="submit">

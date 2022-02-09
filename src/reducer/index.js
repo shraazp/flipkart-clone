@@ -3,9 +3,11 @@ to combine all the reducers
 @author:Shravya P
 */
 import { combineReducers } from 'redux';
-import offerReducer from './offerReducers';
+import CategoryReducer from './categoryReducers';
+import productReducer from './productReducers';
 
 const reducers = combineReducers({
-  allOffers: offerReducer,
+  allCategories: CategoryReducer,
+  allProducts: productReducer,
 });
 export default reducers;

@@ -340,7 +340,20 @@
     -webkit-transform-origin: left;
     transform-origin: left;
 }
-// input:focus{
-//     outline: none;
-//     border-bottom-color: #2874f0;
-// }
+@media only screen and (max-width: 600px) {
+    .column-1{
+        display:none;
+    }
+    .login-dialog{
+        min-width:200px;
+    }
+    .login{
+        min-width:200px;
+    }
+    .column-2{
+        width: 100%;
+    }
+    .x-mark{
+        font-size: small;
+    }
+}

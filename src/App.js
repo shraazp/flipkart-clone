@@ -3,23 +3,27 @@ Redirects to different pages
 @returns home page
 @author:Shravya P
  */
-import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import React from 'react';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+} from 'react-router-dom';
 import Home from './pages/home/Home';
-import getAllDeals from './services/OffersService';
-import { setOffers } from './actions/offerActions';
+import Products from './pages/products/Products';
+import SingleProduct from './pages/singleProduct/SingleProduct';
 
 function App() {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    getAllDeals().then((res) => {
-      dispatch(setOffers(res));
-    }).catch(() => {
-    });
-  }, []);
   return (
     <div className="App">
-      <Home />
+      <Router>
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route path="/categories/:id" element={<Products />} />
+          <Route path="/products/:id" element={<SingleProduct />} />
+        </Routes>
+      </Router>
+
     </div>
   );
 }

@@ -13,7 +13,7 @@ import TextField from '@mui/material/TextField';
 import useForm from '../../utils/useForm';
 import validate from '../../utils/LoginFormValidationRules';
 import { LoginAPI } from '../../services/LoginService';
-import { loginStatus } from '../../actions/offerActions';
+import { loginStatus } from '../../actions/categoryActions';
 
 export default function Login({ openLogin, setOpenLogin, setOpenSignUp }) {
   const dispatch = useDispatch();

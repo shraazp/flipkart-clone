@@ -74,9 +74,7 @@ export default function CustomButtons() {
           <Badge
             badgeContent={2}
             color="secondary"
-            style={
-                            { margin: '0 8px' }
-                    }
+            className={classes.badge}
           >
             <ShoppingCartIcon fontSize="small" />
           </Badge>

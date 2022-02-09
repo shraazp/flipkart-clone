@@ -11,6 +11,11 @@ import { IoIosArrowDown } from 'react-icons/io';
 import DropDown from '../dropDown/DropDown';
 
 const useStyles = makeStyles((theme) => ({
+  Login: {
+    [theme.breakpoints.down('sm')]: {
+      display: 'none',
+    },
+  },
   LoginButtons: {
     margin: '0 20px',
     color: '#2874f0',
@@ -40,8 +45,9 @@ const useStyles = makeStyles((theme) => ({
 function RenderLoggedInMenu() {
   const classes = useStyles();
   return (
-    <DropDown
-      menu={
+    <div className={classes.Login}>
+      <DropDown
+        menu={
         (
           <a href="/login" className={classes.fullName}>
             My Account
@@ -49,7 +55,7 @@ function RenderLoggedInMenu() {
           </a>
         )
       }
-      menus={
+        menus={
                 [
                   {
                     label: 'My Profile',
@@ -105,7 +111,8 @@ function RenderLoggedInMenu() {
                   },
                 ]
             }
-    />
+      />
+    </div>
   );
 }
 
@@ -115,17 +122,18 @@ function RenderNonLoggedInMenu(setOpenLogin) {
     setOpenLogin(true);
   };
   return (
-    <DropDown
-      menu={(
-        <Button
-          variant="contained"
-          className={classes.LoginButtons}
-          onClick={() => { handleOpenLogin(); }}
-        >
-          Login
-        </Button>
+    <div className={classes.Login}>
+      <DropDown
+        menu={(
+          <Button
+            variant="contained"
+            className={classes.LoginButtons}
+            onClick={() => { handleOpenLogin(); }}
+          >
+            Login
+          </Button>
               )}
-      menus={
+        menus={
                 [
                   {
                     label: 'My Profile',
@@ -157,27 +165,28 @@ function RenderNonLoggedInMenu(setOpenLogin) {
                   },
                 ]
             }
-      firstMenu={(
-        <div
-          className="firstmenu"
-        >
-          <span>
-            New Customer?
-          </span>
-          <Button
-            variant="text"
-            style={
+        firstMenu={(
+          <div
+            className="firstmenu"
+          >
+            <span>
+              New Customer?
+            </span>
+            <Button
+              variant="text"
+              style={
 { color: '#2874f0' }
 }
-          >
-            Sign Up
-          </Button>
-        </div>
+            >
+              Sign Up
+            </Button>
+          </div>
               )}
-    />
+      />
+    </div>
   );
 }
 export default function LoginButton({ setOpenLogin, setOpenSignUp }) {
-  const loggedIn = useSelector((state) => state.allOffers.isLogin);
+  const loggedIn = useSelector((state) => state.allCategories.isLogin);
   return (loggedIn ? RenderLoggedInMenu() : RenderNonLoggedInMenu(setOpenLogin, setOpenSignUp));
 }
