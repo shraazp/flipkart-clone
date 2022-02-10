@@ -1,0 +1,116 @@
+.category-container{
+    line-height: 1.4;
+    font-family: Roboto,Arial,sans-serif;
+    letter-spacing: 0;
+    cursor: pointer;
+    color: #212121;
+    font-size: 14px;
+    font-weight: 400;
+    text-align: left;
+    visibility: visible;
+    pointer-events: auto;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 12px;
+    min-width: 240px;
+    position: relative;
+    box-shadow: 0 4px 16px 0 rgba(0,0,0,.2);
+}
+.cat{
+    line-height: 1.4;
+    font-family: Roboto,Arial,sans-serif;
+    letter-spacing: 0;
+    font-size: 14px;
+    font-weight: 400;
+    text-align: left;
+    visibility: visible;
+    pointer-events: auto;
+    box-sizing: border-box;
+    margin: 0;
+    text-decoration: none;
+    color: inherit;
+    border: none;
+    outline: none;
+    padding: 12px;
+    display: flex;
+    background: #fff;
+    justify-content: space-between;
+}
+
+
+.container{
+    padding: 12px 8px;
+    text-align: center,
+}
+// .container:hover .categories-link{
+//     display:block;
+   
+// }
+
+.main-container{
+    display: flex;
+}
+
+.subCategory-container{
+    line-height: 1.4;
+    font-family: Roboto,Arial,sans-serif;
+    letter-spacing: 0;
+    cursor: pointer;
+    color: #212121;
+    font-size: 14px;
+    font-weight: 400;
+    text-align: left;
+    visibility: visible;
+    pointer-events: auto;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 12px;
+    min-width: 240px;
+   
+}
+.sub-span{
+    line-height: 1.4;
+    font-family: Roboto,Arial,sans-serif;
+    letter-spacing: 0;
+    cursor: pointer;
+    text-align: left;
+    visibility: visible;
+    pointer-events: auto;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: #878787;
+    font-weight: 500;
+    margin-bottom: 24px;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+.sub-cat{
+    line-height: 1.4;
+    font-family: Roboto,Arial,sans-serif;
+    letter-spacing: 0;
+    font-size: 14px;
+    font-weight: 400;
+    text-align: left;
+    visibility: visible;
+    pointer-events: auto;
+    box-sizing: border-box;
+    margin: 0;
+    text-decoration: none;
+    color: inherit;
+    border: none;
+    outline: none;
+    padding: 12px;
+    display: flex;
+    background: #fff;
+    justify-content: space-between;
+}
+.cat:hover{
+    background-color: #f9f9f9;
+    color: #2874f0;
+}
+.sub-cat:hover{
+    background-color: #f9f9f9;
+    color: #2874f0;
+}
+

@@ -1,0 +1,8 @@
+#container {
+    height: 100%;
+    background-color: #f1f3f6;
+}
+.header-container{
+    padding-bottom: 56px;
+    position: relative;
+}
