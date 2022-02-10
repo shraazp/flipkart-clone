@@ -1,3 +1,7 @@
+/**
+ * A page consisting of all the products of a category
+ * @author:Shravya P
+ */
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Paper from '@mui/material/Paper';

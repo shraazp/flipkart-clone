@@ -1,5 +1,5 @@
 /**
- * Function to get all the deals stored in database and connects to api.
+ * Function to get all the products stored in database and connects to api.
  * @author:Shravya P
  */
 const axios = require('axios');

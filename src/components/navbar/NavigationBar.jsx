@@ -7,7 +7,6 @@ import './Navigation.scss';
 import { navData, categories } from '../../constants/data';
 import Categories from './Categories';
 
-// eslint-disable-next-line react/prop-types
 export default function NavigationBar() {
   const [open, setOpen] = useState(false);
   const [category, setCategory] = useState('');

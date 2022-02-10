@@ -2,7 +2,7 @@
  * function that contains rules to validate email and password input
  * @param {object} values email and password
  * @returns error messages if present
-@author:Shravya P
+   @author:Shravya P
  */
 export default function validate(values) {
   const errors = {};
