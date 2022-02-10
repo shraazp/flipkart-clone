@@ -18,7 +18,7 @@ export default function ProductCard({ item }) {
         className={classes.cardImage}
         component="img"
         image={item.attributes.imageUrl}
-        alt="green iguana"
+        alt={item.attributes.productName}
       />
       <CardContent>
         <Typography variant="subtitle2" className={classes.title} component="div">
