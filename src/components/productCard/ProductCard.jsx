@@ -8,6 +8,7 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
+<<<<<<< HEAD
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import useStyles from './Style';
@@ -23,6 +24,14 @@ export default function ProductCard({ item }) {
   };
   return (
     <Card className={classes.card} sx={{ boxShadow: 'none' }} onClick={() => { handleProduct(item); }}>
+=======
+import useStyles from './Style';
+
+export default function ProductCard({ item }) {
+  const classes = useStyles();
+  return (
+    <Card className={classes.card} sx={{ boxShadow: 'none' }}>
+>>>>>>> 7d2d08d96a24b54cba1e253485d6cc6ccbda7aa4
       <CardMedia
         className={classes.cardImage}
         component="img"

@@ -1,6 +1,10 @@
 import { makeStyles } from '@material-ui/core';
 
+<<<<<<< HEAD
 const useStyle = makeStyles(() => ({
+=======
+const useStyle = makeStyles((theme) => ({
+>>>>>>> 7d2d08d96a24b54cba1e253485d6cc6ccbda7aa4
   container: {
     backgroundColor: '#f1f3f6',
   },
@@ -10,6 +14,14 @@ const useStyle = makeStyles(() => ({
     backgroundColor: 'rgb(255, 255, 255)',
     padding: '16px',
   },
+<<<<<<< HEAD
+=======
+  productImage: {
+    [theme.breakpoints.down('md')]: {
+      padding: '20px 40px',
+    },
+  },
+>>>>>>> 7d2d08d96a24b54cba1e253485d6cc6ccbda7aa4
   image: {
     marginTop: '64px',
     transition: 'opacity .5s linear',
@@ -18,6 +30,7 @@ const useStyle = makeStyles(() => ({
     maxWidth: '100%',
     maxHeight: '100%',
   },
+<<<<<<< HEAD
   CartButtons: {
     marginTop: '12px',
     width: '100%',
@@ -163,5 +176,7 @@ const useStyle = makeStyles(() => ({
   service: {
 
   },
+=======
+>>>>>>> 7d2d08d96a24b54cba1e253485d6cc6ccbda7aa4
 }));
 export default useStyle;

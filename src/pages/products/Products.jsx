@@ -12,7 +12,11 @@ import Footer from '../../components/footer/Footer';
 import './products.scss';
 import ProductCard from '../../components/productCard/ProductCard';
 import getAllProducts from '../../services/ProductService';
+<<<<<<< HEAD
 import { setProducts } from '../../actions/productActions';
+=======
+import setProducts from '../../actions/productActions';
+>>>>>>> 7d2d08d96a24b54cba1e253485d6cc6ccbda7aa4
 
 export default function Products() {
   const dispatch = useDispatch();

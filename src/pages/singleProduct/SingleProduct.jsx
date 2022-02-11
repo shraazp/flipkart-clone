@@ -4,6 +4,7 @@
  * @author:Shravya P
  */
 import React from 'react';
+<<<<<<< HEAD
 import { useSelector } from 'react-redux';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
@@ -12,18 +13,26 @@ import Typography from '@mui/material/Typography';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import FlashOnIcon from '@mui/icons-material/FlashOn';
 import LocalOfferIcon from '@mui/icons-material/LocalOffer';
+=======
+import Box from '@mui/material/Box';
+import Grid from '@mui/material/Grid';
+>>>>>>> 7d2d08d96a24b54cba1e253485d6cc6ccbda7aa4
 import useStyle from './Styles';
 import Header from '../../components/header/Header';
 import Footer from '../../components/footer/Footer';
 
 export default function SingleProduct() {
   const classes = useStyle();
+<<<<<<< HEAD
   const product = useSelector((state) => state.allProducts.singleProduct);
+=======
+>>>>>>> 7d2d08d96a24b54cba1e253485d6cc6ccbda7aa4
   return (
     <Box className={classes.container}>
       <Header />
       <Grid container spacing={2} className={classes.productContainer}>
         <Grid item xs={12} md={4} className={classes.productImage}>
+<<<<<<< HEAD
           <img className={classes.image} src={product.attributes.imageUrl} width="100%" alt="product" />
           <div className={classes.CartButtons}>
             <Button className={classes.button} style={{ marginRight: 10, background: '#ff9f00' }} variant="contained">
@@ -104,6 +113,11 @@ export default function SingleProduct() {
             </div>
           </div>
         </Grid>
+=======
+          <img className={classes.image} src="https://rukminim1.flixcart.com/image/800/960/kkfrjww0/t-shirt/h/1/t/l-t312-cgblwh-new-eyebogler-original-imafzs5hrjgzsfpr.jpeg?q=50" width="100%" alt="product" />
+        </Grid>
+        <Grid item xs={12} md={8} className={classes.productDesc} />
+>>>>>>> 7d2d08d96a24b54cba1e253485d6cc6ccbda7aa4
       </Grid>
       <Footer />
     </Box>
