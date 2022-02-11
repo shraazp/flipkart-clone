@@ -41,11 +41,7 @@ const CategoryReducer = (state = intialState, { type, payload }) => {
     case ActionTypes.SET_LOGIN:
       return {
         ...state,
-<<<<<<< HEAD
         isLogin: payload,
-=======
-        isLogin: !state.isLogin,
->>>>>>> 7d2d08d96a24b54cba1e253485d6cc6ccbda7aa4
       };
     default:
       return state;
