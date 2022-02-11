@@ -1,35 +1,68 @@
+/**
+ * Dropdon function for login and more components
+ * @author:Shravya P
+ */
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
-import './dropDown.scss'
-export default function DropDown(props) {
-    return <div className="headerDropdownContainer">
-        {
-        props.menu
-    }
-        <div className="dropdown">
-            <div className="upArrow"></div>
-            {
-            props.firstMenu
-        }
-            <ul className="headerDropdownMenu">
-                {
-                props.menus && props.menus.map((item, index) => (
-                    <li key={index}>
+import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
+import './dropDown.scss';
+import { removeUserSession } from '../../utils/Common';
+import { loginStatus } from '../../actions/categoryActions';
 
-                        <a href={
+export default function DropDown({ menu, menus, firstMenu }) {
+  const logout = (item) => {
+    if (item === 'Logout') {
+      removeUserSession();
+      useDispatch(loginStatus(false));
+    }
+  };
+  return (
+    <div className="headerDropdownContainer">
+      { menu }
+      <div className="dropdown">
+        <div className="upArrow" />
+        {
+           firstMenu
+        }
+        <ul className="headerDropdownMenu">
+          {
+                menus && menus.map((item) => (
+                  <li onClick={() => { logout(item.label); }}>
+                    <a
+                      href={
                             `${
-                                item.href
+                              item.href
                             }`
-                        } className="icons">
-                            {
+                        }
+                      className="icons"
+                    >
+                      {
                             item.icon
                         }
-                            {
+                      <div className="icon-label">
+                        {
                             item.label
-                        } </a>
-
-                    </li>
+                        }
+                      </div>
+                    </a>
+                  </li>
                 ))
-            } </ul>
-        </div>
-    </div>;
+            }
+          {' '}
+        </ul>
+      </div>
+    </div>
+  );
 }
+DropDown.propTypes = {
+  menu: PropTypes.node,
+  menus: PropTypes.node,
+  firstMenu: PropTypes.node,
+};
+DropDown.defaultProps = {
+  menu: <span>More</span>,
+  menus: { },
+  firstMenu: <div />,
+};
