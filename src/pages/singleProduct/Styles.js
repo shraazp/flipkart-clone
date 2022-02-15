@@ -17,6 +17,8 @@ const useStyle = makeStyles(() => ({
     borderRadius: '2px',
     maxWidth: '100%',
     maxHeight: '100%',
+    padding: '15px 20px',
+    width: '95%',
   },
   CartButtons: {
     marginTop: '12px',
@@ -160,8 +162,8 @@ const useStyle = makeStyles(() => ({
     paddingBottom: '6px',
     lineHeight: '25px',
   },
-  service: {
-
+  greyTextColor: {
+    color: '#878787',
   },
 }));
 export default useStyle;

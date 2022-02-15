@@ -31,7 +31,7 @@ export default function Products() {
         <Header />
       </div>
       <Paper variant="outlined" elevation={1} sx={{ padding: '8px', margin: '8px' }}>
-        <Grid container spacing={2}>
+        <Grid container spacing={4}>
           <Grid item xs={12}>
             <div className="product-container">
               <div className="product-header-container">
@@ -60,7 +60,7 @@ export default function Products() {
             </div>
           </Grid>
           {products.length !== 0 ? (products.map((item) => (
-            <Grid item xs={6} md={2}>
+            <Grid item xs={6} md={3} lg={2}>
               <ProductCard item={item} id={id} />
             </Grid>
           ))) : null}

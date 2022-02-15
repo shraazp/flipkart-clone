@@ -4,33 +4,56 @@
  * @author:Shravya P
  */
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
+import {
+  Table, TableBody, TableRow, TableCell,
+} from '@material-ui/core';
 import Typography from '@mui/material/Typography';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import FlashOnIcon from '@mui/icons-material/FlashOn';
 import LocalOfferIcon from '@mui/icons-material/LocalOffer';
+import { useNavigate } from 'react-router-dom';
 import useStyle from './Styles';
 import Header from '../../components/header/Header';
 import Footer from '../../components/footer/Footer';
+import { setCart } from '../../services/CartService';
+import { addToCart } from '../../actions/cartActions';
 
 export default function SingleProduct() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const classes = useStyle();
   const product = useSelector((state) => state.allProducts.singleProduct);
+  const date = new Date(new Date().getTime() + (5 * 24 * 60 * 60 * 1000));
+  const handleCart = (item) => {
+    const data = {
+      data: {
+        productId: item.productId,
+        title: item.productName,
+        url: item.imageUrl,
+        sp: item.sellingPrice,
+        op: item.originalPrice,
+        discount: item.discount,
+        quantity: 1,
+      },
+    };
+    setCart(data).then((res) => { dispatch(addToCart(res)); }).catch();
+  };
   return (
     <Box className={classes.container}>
       <Header />
       <Grid container spacing={2} className={classes.productContainer}>
         <Grid item xs={12} md={4} className={classes.productImage}>
-          <img className={classes.image} src={product.attributes.imageUrl} width="100%" alt="product" />
+          <img className={classes.image} src={product.attributes.imageUrl} width="80%" alt="product" />
           <div className={classes.CartButtons}>
-            <Button className={classes.button} style={{ marginRight: 10, background: '#ff9f00' }} variant="contained">
+            <Button className={classes.button} style={{ marginRight: 10, background: '#ff9f00' }} variant="contained" onClick={() => { handleCart(product.attributes); }}>
               <ShoppingCartIcon />
               Add to Cart
             </Button>
-            <Button className={classes.button} style={{ background: '#fb641b' }} variant="contained">
+            <Button className={classes.button} style={{ background: '#fb641b' }} variant="contained" onClick={() => { handleCart(product.attributes); navigate('/cart/'); }}>
               <FlashOnIcon />
               {' '}
               Buy Now
@@ -89,19 +112,41 @@ export default function SingleProduct() {
                 Partner OfferExtra 10% off upto ₹500 on next furniture purchase
               </Typography>
             </Box>
-            <div className={classes.deliveryContainer}>
-              <div className={classes.delivery}>
-                <span className={classes.deliveryTitle}>
-                  <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOCIgaGVpZ2h0PSIxOCI+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48ZWxsaXBzZSBjeD0iOSIgY3k9IjE0LjQ3OCIgZmlsbD0iI0ZGRTExQiIgcng9IjkiIHJ5PSIzLjUyMiIvPjxwYXRoIGZpbGw9IiMyODc0RjAiIGQ9Ik04LjYwOSA3LjAxYy0xLjA4IDAtMS45NTctLjgyNi0xLjk1Ny0xLjg0NSAwLS40ODkuMjA2LS45NTguNTczLTEuMzA0YTIuMDIgMi4wMiAwIDAgMSAxLjM4NC0uNTRjMS4wOCAwIDEuOTU2LjgyNSAxLjk1NiAxLjg0NCAwIC40OS0uMjA2Ljk1OS0uNTczIDEuMzA1cy0uODY0LjU0LTEuMzgzLjU0ek0zLjEzIDUuMTY1YzAgMy44NzQgNS40NzkgOC45MjIgNS40NzkgOC45MjJzNS40NzgtNS4wNDggNS40NzgtOC45MjJDMTQuMDg3IDIuMzEzIDExLjYzNCAwIDguNjA5IDAgNS41ODMgMCAzLjEzIDIuMzEzIDMuMTMgNS4xNjV6Ii8+PC9nPjwvc3ZnPg==" alt="location" />
-                  <span style={{ marginLeft: '8px' }}>Deliver To</span>
-                </span>
-                <div className={classes.deliveryText}>
-                  <input type="text" placeholder="Enter delivery pincode" maxLength="6" autoComplete className={classes.codeText} value="" />
-                  <span className={classes.checkText}>Check</span>
-                </div>
-              </div>
-              <div className={classes.service} />
-            </div>
+            <Table>
+              <TableBody>
+                <TableRow className={classes.smallText}>
+                  <TableCell className={classes.greyTextColor}>Delivery</TableCell>
+                  <TableCell style={{ fontWeight: 600 }}>
+                    Delivery by
+                    {' '}
+                    {date.toDateString()}
+                    {' '}
+                    | ₹40
+                  </TableCell>
+                </TableRow>
+                <TableRow className={classes.smallText}>
+                  <TableCell className={classes.greyTextColor}>Warranty</TableCell>
+                  <TableCell>No Warranty</TableCell>
+                </TableRow>
+                <TableRow className={classes.smallText}>
+                  <TableCell className={classes.greyTextColor}>Seller</TableCell>
+                  <TableCell className={classes.smallText}>
+                    <span style={{ color: '#2874f0' }}>SuperComNet</span>
+                    <Typography>GST invoice available</Typography>
+                    <Typography>View more sellers starting from ₹329</Typography>
+                  </TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell colSpan={2}>
+                    <img src="https://rukminim1.flixcart.com/lockin/774/185/images/CCO__PP_2019-07-14.png?q=50" alt="super-coin" style={{ width: 390 }} />
+                  </TableCell>
+                </TableRow>
+                <TableRow className={classes.smallText}>
+                  <TableCell className={classes.greyTextColor}>Description</TableCell>
+                  <TableCell>{product.description}</TableCell>
+                </TableRow>
+              </TableBody>
+            </Table>
           </div>
         </Grid>
       </Grid>
