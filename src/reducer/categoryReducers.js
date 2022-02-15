@@ -41,7 +41,7 @@ const CategoryReducer = (state = intialState, { type, payload }) => {
     case ActionTypes.SET_LOGIN:
       return {
         ...state,
-        isLogin: !state.isLogin,
+        isLogin: payload,
       };
     default:
       return state;

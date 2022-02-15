@@ -8,4 +8,8 @@ const setProducts = (products) => ({
   type: ActionTypes.SET_PRODUCTS,
   payload: products,
 });
-export default setProducts;
+const setSingleProduct = (product) => ({
+  type: ActionTypes.SET_PRODUCT,
+  payload: product,
+});
+export { setProducts, setSingleProduct };

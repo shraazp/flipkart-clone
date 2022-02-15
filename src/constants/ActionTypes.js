@@ -8,6 +8,7 @@ const ActionTypes = {
   SET_SELECTIONS: 'SET_SELECTIONS',
   SET_LOGIN: 'SET_LOGIN',
   SET_PRODUCTS: 'SET_PRODUCTS',
+  SET_PRODUCT: 'SET_PRODUCT',
   SET_CATEGORY: 'SET_CATEGORY',
 };
 export default ActionTypes;

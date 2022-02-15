@@ -172,14 +172,14 @@ function RenderNonLoggedInMenu(setOpenLogin) {
             <span>
               New Customer?
             </span>
-            <Button
+            <div
               variant="text"
               style={
 { color: '#2874f0' }
 }
             >
               Sign Up
-            </Button>
+            </div>
           </div>
               )}
       />

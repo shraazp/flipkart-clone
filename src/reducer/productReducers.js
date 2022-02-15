@@ -6,6 +6,7 @@ import ActionTypes from '../constants/ActionTypes';
 
 const intialState = {
   products: [],
+  singleProduct: {},
 };
 // eslint-disable-next-line default-param-last
 const productReducer = (state = intialState, { type, payload }) => {
@@ -15,6 +16,12 @@ const productReducer = (state = intialState, { type, payload }) => {
       return {
         ...state,
         products: payload,
+      };
+    case ActionTypes.SET_PRODUCT:
+
+      return {
+        ...state,
+        singleProduct: payload,
       };
     default:
       return state;

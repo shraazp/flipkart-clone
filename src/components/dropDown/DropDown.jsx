@@ -15,7 +15,7 @@ export default function DropDown({ menu, menus, firstMenu }) {
   const logout = (item) => {
     if (item === 'Logout') {
       removeUserSession();
-      useDispatch(loginStatus());
+      useDispatch(loginStatus(false));
     }
   };
   return (

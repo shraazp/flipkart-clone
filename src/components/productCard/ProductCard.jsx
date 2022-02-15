@@ -8,17 +8,26 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import useStyles from './Style';
+import { setSingleProduct } from '../../actions/productActions';
 
 export default function ProductCard({ item }) {
+  const navigate = useNavigate();
   const classes = useStyles();
+  const dispatch = useDispatch();
+  const handleProduct = (temp) => {
+    dispatch(setSingleProduct(temp));
+    navigate(`/products/${temp.attributes.productId}`);
+  };
   return (
-    <Card className={classes.card} sx={{ boxShadow: 'none' }}>
+    <Card className={classes.card} sx={{ boxShadow: 'none' }} onClick={() => { handleProduct(item); }}>
       <CardMedia
         className={classes.cardImage}
         component="img"
         image={item.attributes.imageUrl}
-        alt="green iguana"
+        alt={item.attributes.productName}
       />
       <CardContent>
         <Typography variant="subtitle2" className={classes.title} component="div">

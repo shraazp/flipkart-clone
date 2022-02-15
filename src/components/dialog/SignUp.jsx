@@ -16,9 +16,10 @@ import { loginStatus } from '../../actions/categoryActions';
 export default function SignUp({ openSignUp, setOpenSignUp, setOpenLogin }) {
   const dispatch = useDispatch();
   const handleSignUp = () => {
-    SignUpAPI(values.email, values.password);
-    dispatch(loginStatus());
-    setOpenSignUp(false);
+    SignUpAPI(values.email, values.password).then(() => {
+      dispatch(loginStatus(true));
+      setOpenSignUp(false);
+    }).catch();
   };
   const {
     values,
