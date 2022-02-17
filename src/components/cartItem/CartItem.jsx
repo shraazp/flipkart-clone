@@ -1,51 +1,19 @@
 /* eslint-disable react/prop-types */
+/**
+ * component to display each cart item
+ * @param cart item consisting of all the details
+ */
 import React from 'react';
 import {
-  Card, makeStyles, Box, Typography, Button,
+  Card, Box, Typography, Button,
 } from '@material-ui/core';
 import { useDispatch } from 'react-redux';
 import addEllipsis from '../../utils/util';
 import GroupButton from './GroupedButton';
 import { deleteCart } from '../../services/CartService';
 import { deleteCartItem } from '../../actions/cartActions';
+import useStyle from './Style';
 
-const useStyle = makeStyles({
-  component: {
-    borderTop: '1px solid #f0f0f0',
-    borderRadius: 0,
-    display: 'flex',
-  },
-  leftComponent: {
-    margin: 20,
-    display: 'flex',
-    flexDirection: 'column',
-  },
-  image: {
-    height: 110,
-    width: 110,
-  },
-  mid: {
-    margin: 20,
-  },
-  greyTextColor: {
-    color: '#878787',
-  },
-  smallText: {
-    fontSize: 14,
-  },
-  seller: {
-    color: '#878787',
-    fontSize: 14,
-  },
-  price: {
-    fontSize: 18,
-    fontWeight: 600,
-  },
-  remove: {
-    marginTop: 20,
-    fontSize: 16,
-  },
-});
 function CartItem({ item }) {
   const dispatch = useDispatch();
   const classes = useStyle();

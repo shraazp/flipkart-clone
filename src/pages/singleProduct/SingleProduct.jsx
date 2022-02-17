@@ -28,6 +28,10 @@ export default function SingleProduct() {
   const classes = useStyle();
   const product = useSelector((state) => state.allProducts.singleProduct);
   const date = new Date(new Date().getTime() + (5 * 24 * 60 * 60 * 1000));
+  const cartItems = useSelector((state) => state.allCarts.cart);
+  function checkCart(id) {
+    return cartItems.some((el) => el.attributes.productId === id);
+  }
   const handleCart = (item) => {
     const data = {
       data: {
@@ -47,11 +51,11 @@ export default function SingleProduct() {
       <Header />
       <Grid container spacing={2} className={classes.productContainer}>
         <Grid item xs={12} md={4} className={classes.productImage}>
-          <img className={classes.image} src={product.attributes.imageUrl} width="80%" alt="product" />
+          <img className={classes.image} src={product.attributes.imageUrl} alt="product" />
           <div className={classes.CartButtons}>
             <Button className={classes.button} style={{ marginRight: 10, background: '#ff9f00' }} variant="contained" onClick={() => { handleCart(product.attributes); }}>
               <ShoppingCartIcon />
-              Add to Cart
+              {checkCart(product.attributes.productId) === true ? 'Go To Cart' : 'Add to Cart'}
             </Button>
             <Button className={classes.button} style={{ background: '#fb641b' }} variant="contained" onClick={() => { handleCart(product.attributes); navigate('/cart/'); }}>
               <FlashOnIcon />
@@ -112,7 +116,7 @@ export default function SingleProduct() {
                 Partner OfferExtra 10% off upto ₹500 on next furniture purchase
               </Typography>
             </Box>
-            <Table>
+            <Table className={classes.table}>
               <TableBody>
                 <TableRow className={classes.smallText}>
                   <TableCell className={classes.greyTextColor}>Delivery</TableCell>

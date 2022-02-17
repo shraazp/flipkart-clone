@@ -204,5 +204,8 @@ const useStyles = makeStyles((theme) => ({
     color: '#fff',
     marginTop: '5px',
   },
+  cartIcon: {
+    marginRight: '5px',
+  },
 }));
 export default useStyles;

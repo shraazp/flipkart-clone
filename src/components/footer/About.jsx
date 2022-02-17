@@ -16,13 +16,13 @@ export default function About() {
           >
             ABOUT
           </div>
-          <a href="/" className="about-content">Contact Us</a>
-          <a href="/" className="about-content">About Us</a>
-          <a href="/" className="about-content">Careers</a>
-          <a href="/" className="about-content">Flipkart Stories</a>
-          <a href="/" className="about-content">Press</a>
-          <a href="/" className="about-content">Flipkart Wholesale</a>
-          <a href="/" className="about-content">Corporate Information</a>
+          <a href="/" className="about-content" key="1">Contact Us</a>
+          <a href="/" className="about-content" key="2">About Us</a>
+          <a href="/" className="about-content" key="3">Careers</a>
+          <a href="/" className="about-content" key="4">Flipkart Stories</a>
+          <a href="/" className="about-content" key="5">Press</a>
+          <a href="/" className="about-content" key="6">Flipkart Wholesale</a>
+          <a href="/" className="about-content" key="7">Corporate Information</a>
         </div>
         <div className="about">
           <div style={{
@@ -31,11 +31,11 @@ export default function About() {
           >
             HELP
           </div>
-          <a href="/" className="about-content">Payments</a>
-          <a href="/" className="about-content">Shipping</a>
-          <a href="/" className="about-content">Cancellation & Returns</a>
-          <a href="/" className="about-content">FAQ</a>
-          <a href="/" className="about-content">Report Infringement</a>
+          <a href="/" className="about-content" key="1">Payments</a>
+          <a href="/" className="about-content" key="2">Shipping</a>
+          <a href="/" className="about-content" key="3">Cancellation & Returns</a>
+          <a href="/" className="about-content" key="4">FAQ</a>
+          <a href="/" className="about-content" key="5">Report Infringement</a>
         </div>
         <div className="about">
           <div style={{
@@ -44,12 +44,12 @@ export default function About() {
           >
             POLICY
           </div>
-          <a href="/" className="about-content">Return Policy</a>
-          <a href="/" className="about-content">Terms Of Use</a>
-          <a href="/" className="about-content">Security</a>
-          <a href="/" className="about-content">Privacy</a>
-          <a href="/" className="about-content">Sitemap</a>
-          <a href="/" className="about-content">EPR Compilance</a>
+          <a href="/" className="about-content" key="1">Return Policy</a>
+          <a href="/" className="about-content" key="2">Terms Of Use</a>
+          <a href="/" className="about-content" key="3">Security</a>
+          <a href="/" className="about-content" key="4">Privacy</a>
+          <a href="/" className="about-content" key="5">Sitemap</a>
+          <a href="/" className="about-content" key="6">EPR Compilance</a>
         </div>
         <div className="about">
           <div style={{
@@ -58,9 +58,9 @@ export default function About() {
           >
             SOCIAL
           </div>
-          <a href="/" className="about-content">Facebook</a>
-          <a href="/" className="about-content">Twitter</a>
-          <a href="/" className="about-content">YouTube</a>
+          <a href="/" className="about-content" key="1">Facebook</a>
+          <a href="/" className="about-content" key="2">Twitter</a>
+          <a href="/" className="about-content" key="3">YouTube</a>
         </div>
         <div className="mail-us-container">
           <div style={{

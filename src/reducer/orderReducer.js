@@ -1,23 +1,24 @@
+/* eslint-disable no-case-declarations */
 /**
- * reducer for storing addresses
+ * reducer for storing orders
  * @author:Shravya P
  */
 import ActionTypes from '../constants/ActionTypes';
 
 const intialState = {
-  address: [],
+  order: {},
 };
 // eslint-disable-next-line default-param-last
-const addressReducer = (state = intialState, { type, payload }) => {
+const orderReducer = (state = intialState, { type, payload }) => {
   switch (type) {
-    case ActionTypes.SET_ADDRESS:
+    case ActionTypes.SET_ORDER:
 
       return {
         ...state,
-        address: payload,
+        order: payload,
       };
     default:
       return state;
   }
 };
-export default addressReducer;
+export default orderReducer;

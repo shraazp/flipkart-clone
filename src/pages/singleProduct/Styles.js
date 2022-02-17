@@ -1,6 +1,6 @@
 import { makeStyles } from '@material-ui/core';
 
-const useStyle = makeStyles(() => ({
+const useStyle = makeStyles((theme) => ({
   container: {
     backgroundColor: '#f1f3f6',
   },
@@ -17,8 +17,8 @@ const useStyle = makeStyles(() => ({
     borderRadius: '2px',
     maxWidth: '100%',
     maxHeight: '100%',
-    padding: '15px 20px',
-    width: '95%',
+    width: '100%',
+    border: '1px solid #f0f0f0',
   },
   CartButtons: {
     marginTop: '12px',
@@ -164,6 +164,12 @@ const useStyle = makeStyles(() => ({
   },
   greyTextColor: {
     color: '#878787',
+  },
+  table: {
+    display: 'flex',
+    [theme.breakpoints.down('sm')]: {
+      display: 'none',
+    },
   },
 }));
 export default useStyle;

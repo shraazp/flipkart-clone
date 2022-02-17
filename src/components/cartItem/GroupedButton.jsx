@@ -1,5 +1,8 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-shadow */
+/**
+ * component containing buttons to increase and decrease the items in the cart
+ */
 import React from 'react';
 import { ButtonGroup, Button, makeStyles } from '@material-ui/core';
 import { useDispatch } from 'react-redux';

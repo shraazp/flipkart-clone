@@ -7,7 +7,10 @@ import { Menu } from '@material-ui/icons';
 import {
   AppBar, Toolbar, Box, Typography, IconButton, Drawer, List, Button,
 } from '@material-ui/core';
+import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import LogoutIcon from '@mui/icons-material/Logout';
 import flipkart from '../../images/flipkart.png';
 import plus from '../../images/plus.png';
 import Search from './Search';
@@ -18,11 +21,16 @@ import Login from '../dialog/Login';
 import SignUp from '../dialog/SignUp';
 import useStyles from './Styles';
 
+import { removeUserSession } from '../../utils/Common';
+import { loginStatus } from '../../actions/categoryActions';
+
 export default function Header() {
   const classes = useStyles();
+  const navigate = useNavigate();
   const [open, setOpen] = useState(false);
   const [openLogin, setOpenLogin] = useState(false);
   const [openSignUpup, setOpenSignUp] = useState(false);
+  const loggedIn = useSelector((state) => state.allCategories.isLogin);
   const handleClose = () => {
     setOpen(false);
   };
@@ -129,8 +137,16 @@ export default function Header() {
           setOpenLogin={setOpenLogin}
         />
         <div className={classes.cartLogin}>
-          <ShoppingCartIcon className={classes.cartIcon} />
-          <Button variant="text" className={classes.LoginButton} onClick={() => { setOpenLogin(true); }}>LOGIN</Button>
+          <ShoppingCartIcon className={classes.cartIcon} onClick={() => navigate('/cart')} />
+          {loggedIn ? (
+            <LogoutIcon
+              className={classes.cartIcon}
+              onClick={() => {
+                removeUserSession();
+                useDispatch(loginStatus(false));
+              }}
+            />
+          ) : <Button variant="text" className={classes.LoginButton} onClick={() => { setOpenLogin(true); }}>LOGIN</Button>}
         </div>
       </Toolbar>
     </AppBar>

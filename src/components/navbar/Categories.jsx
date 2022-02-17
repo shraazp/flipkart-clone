@@ -15,7 +15,7 @@ function Categories({ cat }) {
     <div className="main-container">
       <ul className="category-container">
         {Object.keys(cat).map((key) => (
-          <li className="cat" onMouseOver={() => { handleHover(cat[key]); }} onFocus={() => { handleHover(cat[key]); }}>
+          <li className="cat" onMouseOver={() => { handleHover(cat[key]); }} onFocus={() => { handleHover(cat[key]); }} key={key}>
             {key}
           </li>
         ))}

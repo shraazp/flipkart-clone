@@ -1,5 +1,5 @@
 /**
- * Function to get all the products stored in database and connects to api.
+ * Function to get all the addresses stored in database and connects to api.
  * @author:Shravya P
  */
 import { getToken } from '../utils/Common';
@@ -34,12 +34,12 @@ export async function setAddresss(data) {
     return [];
   }
 }
-export async function updateCart(data, id) {
+export async function updateAddresss(data, id) {
   try {
     const response = await axios.put(`http://localhost:1337/api/addresses/${id}`, data, {
       headers: {
         Authorization:
-            `Bearer ${token}`,
+          `Bearer ${token}`,
       },
     });
     return response.data.data;

@@ -1,9 +1,10 @@
 /**
- * more component and cart button
+ * more component and cart button present in the header of the application
  * @author:Shravya P
  */
 import React from 'react';
-import { Badge } from '@material-ui/core';
+import { Badge, Button } from '@material-ui/core';
+import { useSelector } from 'react-redux';
 import { IoIosArrowDown } from 'react-icons/io';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import BusinessCenterIcon from '@mui/icons-material/BusinessCenter';
@@ -11,11 +12,14 @@ import LiveHelpIcon from '@mui/icons-material/LiveHelp';
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import DownloadIcon from '@mui/icons-material/Download';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { useNavigate } from 'react-router-dom';
 import DropDown from '../dropDown/DropDown';
 import useStyles from './Styles';
 
 export default function CustomButtons() {
   const classes = useStyles();
+  const navigate = useNavigate();
+  const cartItems = useSelector((state) => state.allCarts.cart);
   return (
     <>
       <div className={
@@ -61,26 +65,27 @@ export default function CustomButtons() {
                     }
         />
       </div>
-      <div className={
+      <Button
+        variant="text"
+        className={
                 classes.cartContainer
             }
+        onClick={() => navigate('/cart')}
       >
-        <a
-          href="/cart"
-          className={
+        <div className={
                         classes.cart
                 }
         >
           <Badge
-            badgeContent={2}
+            badgeContent={cartItems.length || 0}
             color="secondary"
             className={classes.badge}
           >
             <ShoppingCartIcon fontSize="small" />
           </Badge>
           <span>Cart</span>
-        </a>
-      </div>
+        </div>
+      </Button>
     </>
   );
 }

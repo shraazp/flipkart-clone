@@ -1,67 +1,29 @@
 /* eslint-disable react/prop-types */
+/**
+ * component to get total price of the items in the cart discounts and offers applied
+ */
 import React, { useState, useEffect } from 'react';
-
-import { Box, makeStyles, Typography } from '@material-ui/core';
-
-const useStyle = makeStyles({
-  component: {
-    width: '100%',
-  },
-  header: {
-    padding: '15px 24px',
-    background: '#fff',
-  },
-  greyTextColor: {
-    color: '#878787',
-  },
-  container: {
-    '& > *': {
-      padding: '15px 24px',
-      background: '#fff',
-      fontSize: 14,
-    },
-  },
-  price: {
-    float: 'right',
-  },
-  totalAmount: {
-    fontSize: 16,
-    fontWeight: 600,
-    borderTop: '1px dashed #e0e0e0',
-    padding: '20px 2px',
-    borderBottom: '1px dashed #e0e0e0',
-  },
-  safeMessageContainer: {
-    margin: '4px 15px 8px',
-    textAlign: 'center',
-  },
-  safeMessage: {
-    fontSize: '14px',
-    textAlign: 'left',
-    display: 'inline-block',
-    color: '#878787',
-    padding: '5px 0 5px 35px',
-    background: 'url(https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/shield_b33c0c.svg) no-repeat 0 50%',
-    backgroundSize: '25px 31px',
-    fontWeight: '500',
-  },
-});
+import { Box, Typography } from '@material-ui/core';
+import { useDispatch } from 'react-redux';
+import { setTotalCost } from '../../actions/cartActions';
+import useStyle from './Style';
 
 function TotalView({ cartItems }) {
   const classes = useStyle();
   const [price, setPrice] = useState(0);
   const [discount, setDiscount] = useState(0);
-
+  const dispatch = useDispatch();
   const totalAmount = () => {
     let prices = 0; let
       discounts = 0;
     cartItems.map((item) => {
-      prices += item.attributes.op;
-      discounts += (item.attributes.op - item.attributes.sp);
+      prices += item.attributes.op * item.attributes.quantity;
+      discounts += (item.attributes.op - item.attributes.sp) * item.attributes.quantity;
       return (prices, discounts);
     });
     setPrice(prices);
     setDiscount(Math.abs(discounts));
+    dispatch(setTotalCost(prices - discounts));
   };
   useEffect(() => {
     totalAmount();
@@ -109,6 +71,9 @@ function TotalView({ cartItems }) {
           on this order
         </Typography>
       </Box>
+      <div className={classes.image}>
+        <img width="100%" src="https://rukminim1.flixcart.com/lockin/736/176/images/promotion_banner_v2_inactive_2.png?q=50" alt="" />
+      </div>
       <div className={classes.safeMessageContainer}>
         <div className={classes.safeMessage}>
           Safe and Secure Payments.Easy returns.100% Authentic products.

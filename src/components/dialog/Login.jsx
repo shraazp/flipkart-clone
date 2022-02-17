@@ -1,5 +1,6 @@
 /**
  * Login dialog page to log into the application.
+ * Opens as a dialog component
  * @author:Shravya P
  */
 /* eslint-disable no-use-before-define */
@@ -21,6 +22,7 @@ export default function Login({ openLogin, setOpenLogin, setOpenSignUp }) {
     LoginAPI(values.email, values.password).then(() => {
       dispatch(loginStatus(true));
       setOpenLogin(false);
+      window.location.reload();
     }).catch();
   };
   const {
@@ -57,6 +59,9 @@ export default function Login({ openLogin, setOpenLogin, setOpenSignUp }) {
                         className="email"
                         label="Enter Email/Mobile number"
                         helperText={errors.email}
+                        error={
+                          !!errors.email
+                      }
                         variant="standard"
                         type="email"
                         name="email"
@@ -70,6 +75,9 @@ export default function Login({ openLogin, setOpenLogin, setOpenSignUp }) {
                         className="password"
                         label="Enter Password"
                         helperText={errors.password}
+                        error={
+                          !!errors.password
+                      }
                         variant="standard"
                         type="password"
                         name="password"

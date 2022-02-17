@@ -54,6 +54,9 @@ export default function SignUp({ openSignUp, setOpenSignUp, setOpenLogin }) {
                       <TextField
                         className="email"
                         label="Enter Email/Mobile number"
+                        error={
+                          !!errors.email
+                      }
                         helperText={errors.email}
                         variant="standard"
                         type="email"
@@ -69,6 +72,9 @@ export default function SignUp({ openSignUp, setOpenSignUp, setOpenLogin }) {
                         className="password"
                         label="Enter Password"
                         helperText={errors.password}
+                        error={
+                          !!errors.password
+                      }
                         variant="standard"
                         type="password"
                         name="password"

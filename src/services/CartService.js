@@ -1,5 +1,5 @@
 /**
- * Function to get all the products stored in database and connects to api.
+ * Function to get all the cart details stored in database and connects to api.
  * @author:Shravya P
  */
 import { getToken } from '../utils/Common';
