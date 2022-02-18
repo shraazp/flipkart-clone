@@ -25,6 +25,7 @@ import { removeUserSession } from '../../utils/Common';
 import { loginStatus } from '../../actions/categoryActions';
 
 export default function Header() {
+  const dispatch = useDispatch();
   const classes = useStyles();
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
@@ -78,7 +79,7 @@ export default function Header() {
                 }
         >
           <img
-            alt=""
+            alt="flipkart-logo"
             src={flipkart}
             className={
                             classes.logoMain
@@ -112,7 +113,7 @@ export default function Header() {
               </Box>
             </Typography>
             <img
-              alt=""
+              alt="flipkart-plus"
               src={plus}
               className={
                                 classes.subURL
@@ -143,10 +144,10 @@ export default function Header() {
               className={classes.cartIcon}
               onClick={() => {
                 removeUserSession();
-                useDispatch(loginStatus(false));
+                dispatch(loginStatus(false));
               }}
             />
-          ) : <Button variant="text" className={classes.LoginButton} onClick={() => { setOpenLogin(true); }}>LOGIN</Button>}
+          ) : <Button aria-label="login-button" variant="text" className={classes.LoginButton} onClick={() => { setOpenLogin(true); }}>LOGIN</Button>}
         </div>
       </Toolbar>
     </AppBar>

@@ -11,6 +11,7 @@ import {
   ListItemText,
   Divider,
 } from '@material-ui/core';
+import { useSelector } from 'react-redux';
 import PersonIcon from '@mui/icons-material/Person';
 import logo from '../../images/logo.png';
 import { drawerData } from '../../constants/data';
@@ -18,6 +19,7 @@ import useStyles from './Styles';
 
 export default function DrawerStyle() {
   const classes = useStyles();
+  const loggedIn = useSelector((state) => state.allCategories.isLogin);
   return (
     <div>
       <AppBar
@@ -34,10 +36,10 @@ export default function DrawerStyle() {
                 classes.login
             }
         >
-          Login & Signup
+          {loggedIn ? ' Welcome' : 'Login & Signup' }
         </span>
         <img
-          alt=""
+          alt="logo"
           src={logo}
           className={
                     classes.logo

@@ -66,6 +66,7 @@ export default function CustomButtons() {
         />
       </div>
       <Button
+        aria-label="cart-component"
         variant="text"
         className={
                 classes.cartContainer

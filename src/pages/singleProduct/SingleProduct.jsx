@@ -21,8 +21,10 @@ import Header from '../../components/header/Header';
 import Footer from '../../components/footer/Footer';
 import { setCart } from '../../services/CartService';
 import { addToCart } from '../../actions/cartActions';
+import { getEmail } from '../../utils/Common';
 
 export default function SingleProduct() {
+  const email = getEmail();
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const classes = useStyle();
@@ -42,6 +44,7 @@ export default function SingleProduct() {
         op: item.originalPrice,
         discount: item.discount,
         quantity: 1,
+        email,
       },
     };
     setCart(data).then((res) => { dispatch(addToCart(res)); }).catch();

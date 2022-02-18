@@ -1,9 +1,10 @@
+/* eslint-disable no-unused-expressions */
 /**
  * Component consisting  of functions related to delivery address of customer
  * @author:Shravya P
  */
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import {
   Box, Grid, TextField, Button,
 } from '@material-ui/core';
@@ -12,9 +13,13 @@ import {
 } from '@mui/material';
 import useStyle from './Styles';
 import useForm from '../../utils/useForm';
-import { setAddresss, updateAddresss } from '../../services/addressService';
+import { setAddresss, updateAddresss, getAddresss } from '../../services/addressService';
+import setAddress from '../../actions/addressActions';
+import { getEmail } from '../../utils/Common';
 
-export default function CustomerAddress() {
+function CustomerAddress() {
+  const dispatch = useDispatch();
+  const email = getEmail();
   const classes = useStyle();
   const [edit, setEdit] = useState(false);
   const {
@@ -36,11 +41,19 @@ export default function CustomerAddress() {
       landmark: values.landmark,
       alternatePhone: values.alternate,
       type: values.type,
+      email,
     },
   };
+  const updateAddressDetails = () => {
+    updateAddresss(data, addressList[0].id);
+    getAddresss().then((res) => { dispatch(setAddress(res)); });
+  };
+  const addAddress = () => {
+    setAddresss(data);
+    getAddresss().then((res) => { dispatch(setAddress(res)); });
+  };
   const handleClick = () => {
-    // eslint-disable-next-line no-unused-expressions
-    Object.keys(address).length > 0 ? updateAddresss(data, addressList[0].id) : setAddresss(data);
+    Object.keys(address).length > 0 ? updateAddressDetails() : addAddress();
     setEdit(false);
   };
   return (
@@ -145,3 +158,4 @@ export default function CustomerAddress() {
     </Grid>
   );
 }
+export default CustomerAddress;

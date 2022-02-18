@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /**
  * Login dialog page to log into the application.
  * Opens as a dialog component
@@ -18,13 +19,11 @@ import { loginStatus } from '../../actions/categoryActions';
 
 export default function Login({ openLogin, setOpenLogin, setOpenSignUp }) {
   const dispatch = useDispatch();
-  const handleLogin = () => {
-    LoginAPI(values.email, values.password).then(() => {
-      dispatch(loginStatus(true));
-      setOpenLogin(false);
-      window.location.reload();
-    }).catch();
-  };
+  const handleLogin = () => LoginAPI(values.email, values.password).then(() => {
+    dispatch(loginStatus(true));
+    setOpenLogin(false);
+    window.location.reload();
+  }).catch();
   const {
     values,
     errors,
@@ -40,7 +39,7 @@ export default function Login({ openLogin, setOpenLogin, setOpenSignUp }) {
   };
   return (
     openLogin ? (
-      <div className="signIn-container" tabIndex="-1">
+      <div className="signIn-container">
         <div className="login-container">
           <button type="button" className="x-mark" onClick={() => { handleOpen(); }}>✕</button>
           <div className="login-dialog">
@@ -53,9 +52,10 @@ export default function Login({ openLogin, setOpenLogin, setOpenSignUp }) {
               </div>
               <div className="column-2">
                 <div>
-                  <form onSubmit={handleSubmit} noValidate>
+                  <form noValidate>
                     <div className="email-container">
                       <TextField
+                        id="email-box"
                         className="email"
                         label="Enter Email/Mobile number"
                         helperText={errors.email}
@@ -72,6 +72,7 @@ export default function Login({ openLogin, setOpenLogin, setOpenSignUp }) {
                     </div>
                     <div className="password-container">
                       <TextField
+                        id="password-box"
                         className="password"
                         label="Enter Password"
                         helperText={errors.password}
@@ -118,7 +119,7 @@ export default function Login({ openLogin, setOpenLogin, setOpenSignUp }) {
                       .
                     </div>
                     <div className="Login-button-container">
-                      <button className="Login-button" type="submit">
+                      <button className="Login-button" type="submit" onClick={handleSubmit}>
                         <span>Login</span>
                       </button>
                     </div>

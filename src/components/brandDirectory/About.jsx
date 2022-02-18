@@ -25,7 +25,7 @@ export default function About() {
                   </span>
                   {
                       brandDirectory[key].map((brands) => (
-                        <a className="brand-items" href="/" key={brands}>{brands}</a>
+                        <a className="brand-items" href="/" key={brands} aria-label={brands}>{brands}</a>
                       ))
                   }
                   <br />

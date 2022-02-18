@@ -20,7 +20,7 @@ export default function NavigationBar() {
         <div className="navbar">
           {navData.map((temp) => (
             <div className="nav-child-wrapper" key={temp.text}>
-              <a href="/category">
+              <a href="/category" aria-label="category-link">
                 <div className="nav-image-container">
                   <img className="nav-image" src={temp.url} alt={temp.text} />
                 </div>

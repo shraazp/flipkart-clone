@@ -65,7 +65,7 @@ function CaptchaTest() {
           </div>
 
           <div className="input-btn">
-            <div><button type="button" className="btn-primary" onClick={() => doSubmit()}>CONFIRM ORDER</button></div>
+            <div><button type="button" className="btn-primary" aria-label="confirm-order" onClick={() => doSubmit()}>CONFIRM ORDER</button></div>
           </div>
 
         </div>

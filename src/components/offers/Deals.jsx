@@ -94,7 +94,11 @@ export default function Deals({
         {
             data.map((temp) => (
               <Box textAlign="center" className={classes.wrapper} onClick={() => { handleCategory(temp.attributes.category, temp.attributes.subcategory); navigate(`categories/${temp.attributes.CategoryId}`); }}>
-                <img src={temp.attributes.imageUrl} className={classes.image} alt="" />
+                <img
+                  src={temp.attributes.imageUrl}
+                  className={classes.image}
+                  alt={temp.attributes.name}
+                />
                 <Typography className={classes.text} style={{ fontWeight: 600, color: '#212121' }}>{temp.attributes.name}</Typography>
                 <Typography className={classes.text} style={{ color: 'green' }}>{temp.attributes.discount}</Typography>
                 <Typography className={classes.text} style={{ color: '#212121', opacity: '.6' }}>{temp.attributes.tagline}</Typography>

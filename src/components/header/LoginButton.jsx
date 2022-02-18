@@ -49,7 +49,7 @@ function RenderLoggedInMenu() {
       <DropDown
         menu={
         (
-          <a href="/" className={classes.fullName}>
+          <a href="/" className={classes.fullName} aria-label="my-account">
             My Account
             <IoIosArrowDown />
           </a>
@@ -126,6 +126,7 @@ function RenderNonLoggedInMenu(setOpenLogin) {
       <DropDown
         menu={(
           <Button
+            aria-label="login-button"
             variant="contained"
             className={classes.LoginButtons}
             onClick={() => { handleOpenLogin(); }}

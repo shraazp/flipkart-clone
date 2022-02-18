@@ -2,15 +2,26 @@
  * Function to get all the cart details stored in database and connects to api.
  * @author:Shravya P
  */
-import { getToken } from '../utils/Common';
+import { getToken, getEmail } from '../utils/Common';
 
 const axios = require('axios');
+const qs = require('qs');
 
 const token = getToken();
+const email = getEmail();
 
 export async function getCart() {
+  const query = qs.stringify({
+    filters: {
+      Email: {
+        $eq: email,
+      },
+    },
+  }, {
+    encodeValuesOnly: true,
+  });
   try {
-    const response = await axios.get('http://localhost:1337/api/carts', {
+    const response = await axios.get(`http://localhost:1337/api/carts?${query}`, {
       headers: {
         Authorization:
           `Bearer ${token}`,

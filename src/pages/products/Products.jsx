@@ -42,7 +42,7 @@ export default function Products() {
                       <svg width="16" height="27" viewBox="0 0 16 27" xmlns="http://www.w3.org/2000/svg" className="arrow-main"><path d="M16 23.207L6.11 13.161 16 3.093 12.955 0 0 13.161l12.955 13.161z" fill="#fff" className="arrow" /></svg>
                     </div>
                     <div className="category-name">
-                      <a className="home" href="/categories">{category.category}</a>
+                      <a className="home" href="/categories/1">{category.category}</a>
                       <svg width="16" height="27" viewBox="0 0 16 27" xmlns="http://www.w3.org/2000/svg" className="arrow-main"><path d="M16 23.207L6.11 13.161 16 3.093 12.955 0 0 13.161l12.955 13.161z" fill="#fff" className="arrow" /></svg>
                     </div>
                   </div>

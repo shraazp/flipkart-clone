@@ -4,8 +4,8 @@
 */
 import ActionTypes from '../constants/ActionTypes';
 
-const setAddress = (address) => ({
+const setDeliveryAddress = (address) => ({
   type: ActionTypes.SET_ADDRESS,
   payload: address,
 });
-export default setAddress;
+export default setDeliveryAddress;
