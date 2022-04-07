@@ -11,11 +11,9 @@ export function LoginAPI(email, password) {
     identifier: email,
     password,
   }).then((data) => {
-    setUserSession(data.data.jwt);
+    setUserSession(data.data.jwt, email);
     return data;
-  }).catch((err) => {
-    throw err;
-  });
+  }).catch((err) => { throw err; });
 }
 export function SignUpAPI(email, password) {
   return axios.post('http://localhost:1337/api/auth/local/register', {
@@ -23,7 +21,7 @@ export function SignUpAPI(email, password) {
     email,
     password,
   }).then((data) => {
-    setUserSession(data.data.jwt);
+    setUserSession(data.data.jwt, email);
     return data;
   }).catch((err) => {
     throw err;

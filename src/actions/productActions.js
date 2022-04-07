@@ -1,5 +1,5 @@
 /**
-* Actions for offer state
+* Actions for product state
 * @author:Shravya P
 */
 import ActionTypes from '../constants/ActionTypes';

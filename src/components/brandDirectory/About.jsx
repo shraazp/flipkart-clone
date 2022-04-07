@@ -18,14 +18,14 @@ export default function About() {
           </div>
           {
               Object.keys(brandDirectory).map((key) => (
-                <div className="brand">
+                <div className="brand" key={key}>
                   <span className="brand-title">
                     {key}
                     :
                   </span>
                   {
                       brandDirectory[key].map((brands) => (
-                        <a className="brand-items" href="/">{brands}</a>
+                        <a className="brand-items" href="/" key={brands} aria-label={brands}>{brands}</a>
                       ))
                   }
                   <br />

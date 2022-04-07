@@ -4,17 +4,13 @@ Redirects to different pages
 @author:Shravya P
  */
 import React, { useEffect } from 'react';
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-} from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import Home from './pages/home/Home';
-import Products from './pages/products/Products';
-import SingleProduct from './pages/singleProduct/SingleProduct';
+import RoutesPath from './Router';
 import { getToken } from './utils/Common';
 import { loginStatus } from './actions/categoryActions';
+import { setCart } from './actions/cartActions';
+import { getCart } from './services/CartService';
+import './App.css';
 
 function App() {
   const dispatch = useDispatch();
@@ -24,18 +20,16 @@ function App() {
       dispatch(loginStatus(true));
     }
   }, []);
+  useEffect(() => {
+    getCart().then((res) => {
+      dispatch(setCart(res));
+    }).catch(() => {
+    });
+  }, []);
   return (
     <div className="App">
-      <Router>
-        <Routes>
-          <Route exact path="/" element={<Home />} />
-          <Route path="/categories/:id" element={<Products />} />
-          <Route path="/products/:id" element={<SingleProduct />} />
-        </Routes>
-      </Router>
-
+      <div><RoutesPath /></div>
     </div>
   );
 }
-
 export default App;

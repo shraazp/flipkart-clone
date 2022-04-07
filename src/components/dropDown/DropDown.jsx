@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /**
  * Dropdon function for login and more components
  * @author:Shravya P
@@ -5,7 +6,6 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
-import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import './dropDown.scss';
 import { removeUserSession } from '../../utils/Common';
@@ -29,7 +29,7 @@ export default function DropDown({ menu, menus, firstMenu }) {
         <ul className="headerDropdownMenu">
           {
                 menus && menus.map((item) => (
-                  <li onClick={() => { logout(item.label); }}>
+                  <li onClick={() => { logout(item.label); }} key={item.label}>
                     <a
                       href={
                             `${
@@ -56,13 +56,3 @@ export default function DropDown({ menu, menus, firstMenu }) {
     </div>
   );
 }
-DropDown.propTypes = {
-  menu: PropTypes.node,
-  menus: PropTypes.node,
-  firstMenu: PropTypes.node,
-};
-DropDown.defaultProps = {
-  menu: <span>More</span>,
-  menus: { },
-  firstMenu: <div />,
-};

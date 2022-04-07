@@ -1,5 +1,5 @@
 /**
- * Carousel component of the applicatio contains  offers and many more
+ * Carousel component of the application contains  offers and many more
  * @author:Shravya P
  */
 import React from 'react';
@@ -21,7 +21,7 @@ export default function ImageSlider() {
       >
         {
           CarouselData.map((image) => (
-            <div>
+            <div key={image}>
               <img
                 className="carousel-image"
                 src={image}

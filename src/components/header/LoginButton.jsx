@@ -1,5 +1,5 @@
 /**
- * login component
+ * login button which contains login signUp and different options in dropdown
  * @author:Shravya P
  */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
@@ -49,7 +49,7 @@ function RenderLoggedInMenu() {
       <DropDown
         menu={
         (
-          <a href="/login" className={classes.fullName}>
+          <a href="/" className={classes.fullName} aria-label="my-account">
             My Account
             <IoIosArrowDown />
           </a>
@@ -126,6 +126,7 @@ function RenderNonLoggedInMenu(setOpenLogin) {
       <DropDown
         menu={(
           <Button
+            aria-label="login-button"
             variant="contained"
             className={classes.LoginButtons}
             onClick={() => { handleOpenLogin(); }}

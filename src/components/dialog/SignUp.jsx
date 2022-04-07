@@ -49,11 +49,15 @@ export default function SignUp({ openSignUp, setOpenSignUp, setOpenLogin }) {
               </div>
               <div className="column-2">
                 <div>
-                  <form autoComplete="on" onSubmit={handleSubmit} noValidate>
+                  <form autoComplete="on" noValidate>
                     <div className="email-container">
                       <TextField
                         className="email"
+                        id="email-box"
                         label="Enter Email/Mobile number"
+                        error={
+                          !!errors.email
+                      }
                         helperText={errors.email}
                         variant="standard"
                         type="email"
@@ -67,8 +71,12 @@ export default function SignUp({ openSignUp, setOpenSignUp, setOpenLogin }) {
                     <div className="password-container">
                       <TextField
                         className="password"
+                        id="password-box"
                         label="Enter Password"
                         helperText={errors.password}
+                        error={
+                          !!errors.password
+                      }
                         variant="standard"
                         type="password"
                         name="password"
@@ -102,7 +110,7 @@ export default function SignUp({ openSignUp, setOpenSignUp, setOpenLogin }) {
                       .
                     </div>
                     <div className="Login-button-container">
-                      <button className="Login-button" type="submit">
+                      <button className="Login-button" type="submit" onClick={handleSubmit}>
                         <span>Signup</span>
                       </button>
                     </div>
