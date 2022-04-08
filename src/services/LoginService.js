@@ -7,7 +7,7 @@ import axios from 'axios';
 import { setUserSession } from '../utils/Common';
 
 export function LoginAPI(email, password) {
-  return axios.post('http://localhost:1337/api/auth/local', {
+  return axios.post('https://flipkart-backend-strapi.herokuapp.com/api/auth/local', {
     identifier: email,
     password,
   }).then((data) => {
@@ -16,7 +16,7 @@ export function LoginAPI(email, password) {
   }).catch((err) => { throw err; });
 }
 export function SignUpAPI(email, password) {
-  return axios.post('http://localhost:1337/api/auth/local/register', {
+  return axios.post('https://flipkart-backend-strapi.herokuapp.com/api/auth/local/register', {
     username: email.substring(0, email.indexOf('@')),
     email,
     password,

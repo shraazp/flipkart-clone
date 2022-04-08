@@ -32,6 +32,7 @@ function GroupedButton({ item }) {
   return (
     <ButtonGroup className={classes.component}>
       <Button
+        id="increase"
         className={classes.button}
         onClick={() => handleQuantity(item.attributes.quantity - 1)}
         disabled={item.attributes.quantity === 1}
@@ -41,6 +42,7 @@ function GroupedButton({ item }) {
       </Button>
       <Button disabled>{item.attributes.quantity}</Button>
       <Button
+        id="decrease"
         className={classes.button}
         onClick={() => handleQuantity(item.attributes.quantity + 1)}
       >

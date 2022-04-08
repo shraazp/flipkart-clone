@@ -22,7 +22,6 @@
     "qs": "^6.10.3",
     "react": "^17.0.2",
     "react-countdown": "^2.3.2",
-    "react-dom": "^17.0.2",
     "react-icons": "^4.3.1",
     "react-material-ui-carousel": "^3.1.1",
     "react-multi-carousel": "^2.6.5",
@@ -73,6 +72,8 @@
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.3.0",
     "jest": "^27.5.1",
+    "react-addons-test-utils": "^15.6.2",
+    "react-dom": "^17.0.2",
     "react-test-renderer": "^17.0.2",
     "redux-mock-store": "^1.5.4"
   }

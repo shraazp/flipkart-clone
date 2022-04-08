@@ -21,7 +21,7 @@ export async function getCart() {
     encodeValuesOnly: true,
   });
   try {
-    const response = await axios.get(`http://localhost:1337/api/carts?${query}`, {
+    const response = await axios.get(`https://flipkart-backend-strapi.herokuapp.com/api/carts?${query}`, {
       headers: {
         Authorization:
           `Bearer ${token}`,
@@ -34,7 +34,7 @@ export async function getCart() {
 }
 export async function setCart(data) {
   try {
-    const response = await axios.post('http://localhost:1337/api/carts', data, {
+    const response = await axios.post('https://flipkart-backend-strapi.herokuapp.com/api/carts', data, {
       headers: {
         Authorization:
           `Bearer ${token}`,
@@ -47,7 +47,7 @@ export async function setCart(data) {
 }
 export async function updateCart(data, id) {
   try {
-    const response = await axios.put(`http://localhost:1337/api/carts/${id}`, data, {
+    const response = await axios.put(`https://flipkart-backend-strapi.herokuapp.com/api/carts/${id}`, data, {
       headers: {
         Authorization:
           `Bearer ${token}`,
@@ -60,7 +60,7 @@ export async function updateCart(data, id) {
 }
 export async function deleteCart(id) {
   try {
-    const response = await axios.delete(`http://localhost:1337/api/carts/${id}`, {
+    const response = await axios.delete(`https://flipkart-backend-strapi.herokuapp.com/api/carts/${id}`, {
       headers: {
         Authorization:
           `Bearer ${token}`,
