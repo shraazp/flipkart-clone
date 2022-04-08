@@ -2,7 +2,7 @@
  * Header component contains logo, search button , login and more components also cart button
  * @author:Shravya P
  */
-import React, { useState } from 'react';
+import React from 'react';
 import { Menu } from '@material-ui/icons';
 import {
   AppBar, Toolbar, Box, Typography, IconButton, Drawer, List, Button,
@@ -28,9 +28,9 @@ export default function Header() {
   const dispatch = useDispatch();
   const classes = useStyles();
   const navigate = useNavigate();
-  const [open, setOpen] = useState(false);
-  const [openLogin, setOpenLogin] = useState(false);
-  const [openSignUpup, setOpenSignUp] = useState(false);
+  const [open, setOpen] = React.useState(false);
+  const [openLogin, setOpenLogin] = React.useState(false);
+  const [openSignUpup, setOpenSignUp] = React.useState(false);
   const loggedIn = useSelector((state) => state.allCategories.isLogin);
   const handleClose = () => {
     setOpen(false);

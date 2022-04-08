@@ -18,6 +18,7 @@ function CartItem({ item }) {
   const dispatch = useDispatch();
   const classes = useStyle();
   const fassured = 'https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/fa_62673a.png';
+  // eslint-disable-next-line no-param-reassign
   const removeItemFromCart = (id) => {
     deleteCart(id).then((res) => { dispatch(deleteCartItem(res.id)); }).catch();
   };
@@ -51,6 +52,7 @@ function CartItem({ item }) {
           </span>
         </Typography>
         <Button
+          id="remove"
           className={classes.remove}
           onClick={() => removeItemFromCart(item.id)}
         >

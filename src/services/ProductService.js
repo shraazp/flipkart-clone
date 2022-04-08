@@ -16,7 +16,7 @@ export default async function getAllProducts(catId) {
     encodeValuesOnly: true,
   });
   try {
-    const response = await axios.get(`http://localhost:1337/api/products?${query}`);
+    const response = await axios.get(`https://flipkart-backend-strapi.herokuapp.com/api/products?${query}`);
     return response.data.data;
   } catch (error) {
     return [];

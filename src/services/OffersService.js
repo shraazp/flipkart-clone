@@ -16,7 +16,7 @@ export async function getAllDeals() {
     encodeValuesOnly: true,
   });
   try {
-    const response = await axios.get(`http://localhost:1337/api/categories?${query}`);
+    const response = await axios.get(`https://flipkart-backend-strapi.herokuapp.com/api/categories?${query}`);
     return response.data.data;
   } catch (error) {
     return [];
@@ -33,7 +33,7 @@ export async function getAllDiscounts() {
     encodeValuesOnly: true,
   });
   try {
-    const response = await axios.get(`http://localhost:1337/api/categories?${query}`);
+    const response = await axios.get(`https://flipkart-backend-strapi.herokuapp.com/api/categories?${query}`);
     return response.data.data;
   } catch (error) {
     return [];
@@ -50,7 +50,7 @@ export async function getAllSelection() {
     encodeValuesOnly: true,
   });
   try {
-    const response = await axios.get(`http://localhost:1337/api/categories?${query}`);
+    const response = await axios.get(`https://flipkart-backend-strapi.herokuapp.com/api/categories?${query}`);
     return response.data.data;
   } catch (error) {
     return [];

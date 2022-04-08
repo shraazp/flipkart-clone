@@ -20,16 +20,17 @@ import { loginStatus } from '../../actions/categoryActions';
 export default function Login({ openLogin, setOpenLogin, setOpenSignUp }) {
   const dispatch = useDispatch();
   const handleLogin = () => LoginAPI(values.email, values.password).then(() => {
-    dispatch(loginStatus(true));
     setOpenLogin(false);
-    window.location.reload();
+    dispatch(loginStatus(true));
   }).catch();
+  const loginHandle = () => {
+  };
   const {
     values,
     errors,
     handleChange,
     handleSubmit,
-  } = useForm(handleLogin, validate);
+  } = useForm(loginHandle, validate);
   const handleOpen = () => {
     setOpenLogin(false);
   };
@@ -52,7 +53,7 @@ export default function Login({ openLogin, setOpenLogin, setOpenSignUp }) {
               </div>
               <div className="column-2">
                 <div>
-                  <form noValidate>
+                  <form noValidate onSubmit={handleSubmit}>
                     <div className="email-container">
                       <TextField
                         id="email-box"
@@ -119,7 +120,7 @@ export default function Login({ openLogin, setOpenLogin, setOpenSignUp }) {
                       .
                     </div>
                     <div className="Login-button-container">
-                      <button className="Login-button" type="submit" onClick={handleSubmit}>
+                      <button className="Login-button" type="submit" onClick={handleLogin}>
                         <span>Login</span>
                       </button>
                     </div>

@@ -10,7 +10,7 @@ const token = getToken();
 
 export async function getOrder() {
   try {
-    const response = await axios.get('http://localhost:1337/api/orders', {
+    const response = await axios.get('https://flipkart-backend-strapi.herokuapp.com/api/orders', {
       headers: {
         Authorization:
           `Bearer ${token}`,
@@ -23,7 +23,7 @@ export async function getOrder() {
 }
 export async function setOrder(data) {
   try {
-    const response = await axios.post('http://localhost:1337/api/orders', data, {
+    const response = await axios.post('https://flipkart-backend-strapi.herokuapp.com/api/orders', data, {
       headers: {
         Authorization:
           `Bearer ${token}`,

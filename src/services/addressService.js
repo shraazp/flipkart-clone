@@ -21,7 +21,7 @@ export async function getAddresss() {
     encodeValuesOnly: true,
   });
   try {
-    const response = await axios.get(`http://localhost:1337/api/addresses?${query}`, {
+    const response = await axios.get(`https://flipkart-backend-strapi.herokuapp.com/api/addresses?${query}`, {
       headers: {
         Authorization:
           `Bearer ${token}`,
@@ -34,7 +34,7 @@ export async function getAddresss() {
 }
 export async function setAddresss(data) {
   try {
-    const response = await axios.post('http://localhost:1337/api/addresses', data, {
+    const response = await axios.post('https://flipkart-backend-strapi.herokuapp.com/api/addresses', data, {
       headers: {
         Authorization:
           `Bearer ${token}`,
@@ -47,7 +47,7 @@ export async function setAddresss(data) {
 }
 export async function updateAddresss(data, id) {
   try {
-    const response = await axios.put(`http://localhost:1337/api/addresses/${id}`, data, {
+    const response = await axios.put(`https://flipkart-backend-strapi.herokuapp.com/api/addresses/${id}`, data, {
       headers: {
         Authorization:
           `Bearer ${token}`,
