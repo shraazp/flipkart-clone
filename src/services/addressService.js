@@ -5,29 +5,24 @@
 import { getToken, getEmail } from '../utils/Common';
 
 const axios = require('axios');
-const qs = require('qs');
 
 const token = getToken();
 const email = getEmail();
 
 export async function getAddresss() {
-  const query = qs.stringify({
-    filters: {
-      Email: {
-        $eq: email,
-      },
-    },
-  }, {
-    encodeValuesOnly: true,
-  });
+  function address(item) {
+    // eslint-disable-next-line no-unused-expressions
+    if (item.attributes.email === email) { return item; }
+    return null;
+  }
   try {
-    const response = await axios.get(`https://flipkart-backend-strapi.herokuapp.com/api/addresses?${query}`, {
+    const response = await axios.get('https://flipkart-backend-strapi.herokuapp.com/api/addresses?', {
       headers: {
         Authorization:
           `Bearer ${token}`,
       },
     });
-    return response.data.data;
+    return response.data.data.filter(address);
   } catch (error) {
     return [];
   }

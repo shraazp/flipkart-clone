@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /**
  * Function to get all the cart details stored in database and connects to api.
  * @author:Shravya P
@@ -5,29 +6,25 @@
 import { getToken, getEmail } from '../utils/Common';
 
 const axios = require('axios');
-const qs = require('qs');
+// const qs = require('qs');
 
 const token = getToken();
 const email = getEmail();
 
 export async function getCart() {
-  const query = qs.stringify({
-    filters: {
-      Email: {
-        $eq: email,
-      },
-    },
-  }, {
-    encodeValuesOnly: true,
-  });
+  function cart(item) {
+    // eslint-disable-next-line no-unused-expressions
+    if (item.attributes.email === email) { return item; }
+    return null;
+  }
   try {
-    const response = await axios.get(`https://flipkart-backend-strapi.herokuapp.com/api/carts?${query}`, {
+    const response = await axios.get('https://flipkart-backend-strapi.herokuapp.com/api/carts/', {
       headers: {
         Authorization:
           `Bearer ${token}`,
       },
     });
-    return response.data.data;
+    return response.data.data.filter(cart);
   } catch (error) {
     return [];
   }
